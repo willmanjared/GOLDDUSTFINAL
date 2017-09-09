@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    GOLDDUST
                 </div>
 
                 <div class="links">
