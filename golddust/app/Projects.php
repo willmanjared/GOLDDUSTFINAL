@@ -23,7 +23,7 @@ class Projects extends Model
 	}
 
 	public function test() {
-		return $this->hasOne('App\Tests');
+		return $this->belongsTo('App\Tests');
 	}
 
 	public function review() {
