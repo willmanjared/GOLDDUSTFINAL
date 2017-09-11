@@ -44,7 +44,7 @@ padding: 0;
 
 #messenger-wrapper .panel {
 border-radius: 0;
-margin-bottom: 0;
+/*margin-bottom: 0;*/
 }
 
 #messenger-left, #messenger-right {
@@ -64,4 +64,8 @@ border: 1px solid #d3e0e9;
 box-shadow: 0 1px 1px rgba(0,0,0,.05);
 margin: 5px 0 5px 0;
 padding: 10px;
+}
+
+.message {
+margin-bottom: 15px !important;
 }

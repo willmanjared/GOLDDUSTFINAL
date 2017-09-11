@@ -8,21 +8,17 @@
                 <div class="panel-heading">Conversations</div>
 
                 <div class="panel-body">
-                    <div class="conversation">
-			<div class="conversation-body">
-			    Test Username
-			</div>
-		    </div>
+
+		   @foreach($data as $a)
+
 		    <div class="conversation">
                         <div class="conversation-body">
-                            Test Username
+                            {{ $a['user']['name'] }}
                         </div>
                     </div>
-		    <div class="conversation">
-                        <div class="conversation-body">
-                            Test Username
-                        </div>
-                    </div>
+
+		   @endforeach
+
                 </div>
             </div>
         </div>
@@ -30,8 +26,34 @@
 	<div id="messenger-right" class="col-md-9">
 	    <div id="messenger-messages">
 		<div id="messenger-conversation" class="panel panel-default">
-		    <div class="panel-heading">Conversation Name</div>
+		    <div class="panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
 		    <div class="panel-body">
+<?php //dd($data[0]['messages']); ?>
+			@foreach($data[0]['messages'] as $a)
+
+			<div class="message panel panel-default">
+                            <div class="panel-heading">
+
+				@if ($a['user_id'] == auth()->id())
+
+					{{ auth()->user()->name }}
+
+				@else
+
+					{{ $data[0]['user']['name'] }}
+
+				@endif
+
+			    </div>
+                            <div class="panel-body">
+
+				{{ $a['body'] }}
+
+			    </div>
+                        </div>
+
+			@endforeach
+
 			<div class="message panel panel-default">
 			    <div class="panel-heading">Test Username</div>
 			    <div class="panel-body">This is a test user's message. =]</div>
@@ -47,7 +69,7 @@
 			{{ csrf_field() }}
               		@include('includes.formerror')
 
-			    <input id="reciever_id" type="hidden" name="reciever_id" value="1" />
+			    <input id="reciever_id" type="hidden" name="reciever_id" value="{{ $data[0]['user']['id'] }}" />
 
 			    <div class="input-group">
       				<input type="text" class="form-control" name="message" placeholder="Type message here...">
