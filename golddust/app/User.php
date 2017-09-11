@@ -67,11 +67,11 @@ class User extends Authenticatable
                 return $this->hasMany('App\Reviews', 'author_id');
         }
 
-        public function sentMessages() { 
+        public function recievedMessages() { 
                 return $this->hasMany('App\Messages');
         }
 
-        public function recievedMessages() { 
+        public function sentMessages() { 
                 return $this->hasMany('App\Messages', 'author_id');
         }
 }

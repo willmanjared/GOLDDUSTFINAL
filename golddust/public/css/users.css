@@ -1,0 +1,67 @@
+html, body {
+background-color: #f5f8fa;
+height: 100%;
+margin: 0;
+overflow: hidden;
+padding: 0;
+width: 100%;
+}
+
+div, p, a, label, h1, h2, h3, h4, h5, h6, button, li {
+font-family: Raleway,sans-serif;
+}
+
+.navbar-default {
+background-color: #fff;
+}
+
+/* THIS IS ONLY A TEMPORARY STYLE FOR THE CENTER NAV
+   MORE THAN LIKE HAVE TO CREATE A NEW TOP NAV BAR */
+#center-nav-wrapper {
+display: inline-block;
+height: 50px;
+margin: auto;
+overflow: hidden;
+left: 30%;
+top: 0;
+position: absolute;
+width: 40%;
+}
+
+#app-navbar-collapse {
+position: relative;
+}
+
+/* END TEMPORARY STYLE RULES */
+
+.full-height {
+height: 100% !important;
+}
+
+#messenger-wrapper > [class^=col-] {
+padding: 0;
+}
+
+#messenger-wrapper .panel {
+border-radius: 0;
+margin-bottom: 0;
+}
+
+#messenger-left, #messenger-right {
+height: calc(100% - 96px);
+}
+
+#conversations, #messenger-conversation {
+height: 100%;
+}
+
+#messenger-messages {
+height: calc(100% - 68px);
+}
+
+.conversation {
+border: 1px solid #d3e0e9;
+box-shadow: 0 1px 1px rgba(0,0,0,.05);
+margin: 5px 0 5px 0;
+padding: 10px;
+}

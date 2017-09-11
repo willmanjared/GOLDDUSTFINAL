@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Messages;
+use App\Members;
 use Illuminate\Http\Request;
 
-class MessagesController extends Controller
+class MembersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,16 +22,9 @@ class MessagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        //THIS IS WHERE MESSAGES WILL BE STORED IN THE DATABASE
-	Messages::create([
-	'user_id' => $request['reciever_id'],
-	'body' => $request['message'],
-	'author_id' => auth()->id()
-	]);
-
-	return redirect('/messenger');
+        //
     }
 
     /**
@@ -48,10 +41,10 @@ class MessagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Messages  $messages
+     * @param  \App\Members  $members
      * @return \Illuminate\Http\Response
      */
-    public function show(Messages $messages)
+    public function show(Members $members)
     {
         //
     }
@@ -59,10 +52,10 @@ class MessagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Messages  $messages
+     * @param  \App\Members  $members
      * @return \Illuminate\Http\Response
      */
-    public function edit(Messages $messages)
+    public function edit(Members $members)
     {
         //
     }
@@ -71,10 +64,10 @@ class MessagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Messages  $messages
+     * @param  \App\Members  $members
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Messages $messages)
+    public function update(Request $request, Members $members)
     {
         //
     }
@@ -82,10 +75,10 @@ class MessagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Messages  $messages
+     * @param  \App\Members  $members
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Messages $messages)
+    public function destroy(Members $members)
     {
         //
     }

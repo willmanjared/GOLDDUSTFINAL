@@ -12,11 +12,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap CSS
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    -->
+
+    <!-- Font-Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Users Main CSS -->
+    <link href="{{ asset('css/users.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -38,6 +49,20 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
+
+
+		    <!-- Center Of Navbar -->
+		    <div id="center-nav-wrapper">			
+			<ul class="nav navbar-nav">
+			    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+			    <li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
+			    <li><a href="{{ url('/proposals') }}">Proposals</a></li>
+			    <li><a href="{{ url('/tasks') }}">Tasks</a></li>
+			    <li><a href="{{ url('/stats') }}">Stats</a></li>
+			</ul>
+			
+		     </div>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -70,11 +95,21 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
     </div>
+
+    @yield('content')
+
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <!-- Bootstrap JS
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    -->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- USER JS -->
+    <script src="{{ asset('js/users.js') }}"></script>
 </body>
 </html>
