@@ -124,16 +124,21 @@ $data = $b;
 
     public function proposals()
     {
-	return view('users.proposals');
+			return view('users.proposals');
     }
 
     public function stats()
     {
-	return view('users.stats');
+			return view('users.stats');
     }
 
     public function tasks()
     {
-	return view('users.tasks');
+			return view('users.tasks');
     }
+	
+		public function account()
+		{
+			return view('users.account');
+		}
 }

@@ -29,6 +29,7 @@ Route::get('/messenger', 'UserController@messenger')->name('messenger');
 Route::get('/proposals', 'UserController@proposals')->name('proposals');
 Route::get('/tasks', 'UserController@tasks')->name('tasks');
 Route::get('/stats', 'UserController@stats')->name('stats');
+Route::get('/account', 'UserController@account')->name('account');
 
 
 // MESSENGER ROUTES

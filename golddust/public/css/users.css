@@ -51,8 +51,22 @@ border-radius: 0;
 height: calc(100% - 96px);
 }
 
+.message-name, .message-date {
+display: inline-block;
+margin-bottom: 0;
+}
+
+.message-name {
+
+}
+
+.message-date {
+float: right;
+}
+
 #conversations, #messenger-conversation {
 height: 100%;
+overflow: auto;
 }
 
 #messenger-messages {

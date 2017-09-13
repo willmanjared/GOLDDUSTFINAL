@@ -29,11 +29,11 @@
 		    <div class="panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
 		    <div class="panel-body">
 <?php //dd($data[0]['messages']); ?>
-			@foreach($data[0]['messages'] as $a)
+			@foreach(array_reverse($data[0]['messages']) as $a)
 
 			<div class="message panel panel-default">
                             <div class="panel-heading">
-
+				<p class="message-name">
 				@if ($a['user_id'] == auth()->id())
 
 					{{ auth()->user()->name }}
@@ -43,9 +43,12 @@
 					{{ $data[0]['user']['name'] }}
 
 				@endif
+				</p>
+
+				<p class="message-date"">{{ $a['created_at'] }}</p>
 
 			    </div>
-                            <div class="panel-body">
+                            <div class="panel-body" style="overflow: auto;">
 
 				{{ $a['body'] }}
 
@@ -54,10 +57,6 @@
 
 			@endforeach
 
-			<div class="message panel panel-default">
-			    <div class="panel-heading">Test Username</div>
-			    <div class="panel-body">This is a test user's message. =]</div>
-			</div>
 		    </div>
 		</div>
 	    </div>

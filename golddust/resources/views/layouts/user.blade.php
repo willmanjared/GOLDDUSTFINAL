@@ -53,15 +53,17 @@
 
 		    <!-- Center Of Navbar -->
 		    <div id="center-nav-wrapper">			
-			<ul class="nav navbar-nav">
-			    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-			    <li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
-			    <li><a href="{{ url('/proposals') }}">Proposals</a></li>
-			    <li><a href="{{ url('/tasks') }}">Tasks</a></li>
-			    <li><a href="{{ url('/stats') }}">Stats</a></li>
-			</ul>
-			
+						<ul class="nav navbar-nav">
+								<li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+								<li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
+								<li><a href="{{ url('/proposals') }}">Proposals</a></li>
+								<li><a href="{{ url('/tasks') }}">Tasks</a></li>
+								<li><a href="{{ url('/stats') }}">Stats</a></li>
+						</ul>
 		     </div>
+									
+									<!-- Notifications Feed Widget Right Side Of Navbar -->
+									<ul class="nav navbar-nav navbar-right">
 
 
                     <!-- Right Side Of Navbar -->
@@ -77,6 +79,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+																		<li>
+																			<a href="{{ route('account') }}">Account</a>
+																		</li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -88,6 +93,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+																		
                                 </ul>
                             </li>
                         @endguest
