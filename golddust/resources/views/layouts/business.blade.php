@@ -47,8 +47,8 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-										<a class="navbar-brand" href="{{ url('/b/dashboard') }}">
-                        <i class="fa fa-users"></i>
+                    <a class="navbar-brand" href="{{ url('/f/dashboard') }}">
+                        <i class="fa fa-user"></i>
                     </a>
                 </div>
 
@@ -62,11 +62,9 @@
 		    <!-- Center Of Navbar -->
 		    <div id="center-nav-wrapper">			
 						<ul class="nav navbar-nav">
-								<li><a href="{{ url('/f/dashboard') }}">Dashboard</a></li>
+								<li><a href="{{ url('/b/dashboard') }}">Dashboard</a></li>
 								<li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
-								<li><a href="{{ url('/f/proposals') }}">Proposals</a></li>
-								<li><a href="{{ url('/f/tasks') }}">Tasks</a></li>
-								<li><a href="{{ url('/f/stats') }}">Stats</a></li>
+                <li><a href="{{ route('projects') }}">Projects</a></li>
 						</ul>
 		     </div>
 									

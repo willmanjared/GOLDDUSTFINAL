@@ -17,6 +17,11 @@ ul {
   padding: 0;
 }
 
+.navbar-brand {
+  position: relative;
+  z-index: 1;
+}
+
 .navbar-default {
 background-color: #fff;
 }

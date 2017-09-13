@@ -141,4 +141,16 @@ $data = $b;
 		{
 			return view('users.account');
 		}
+	
+	
+		// BUSINESS CONTROLLER ROUTES
+	public function businessdash() 
+	{
+		return view('business.dashboard');
+	}
+	
+	public function projects()
+	{
+		return view('business.projects');
+	}
 }
