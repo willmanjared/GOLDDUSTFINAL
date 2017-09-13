@@ -11,6 +11,12 @@ div, p, a, label, h1, h2, h3, h4, h5, h6, button, li {
 font-family: Raleway,sans-serif;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .navbar-default {
 background-color: #fff;
 }
@@ -67,6 +73,17 @@ float: right;
 #conversations, #messenger-conversation {
 height: 100%;
 overflow: auto;
+  position: relative !important;
+  width: 100%;
+}
+
+#conversations > .panel-body, #messenger-conversation > .panel-body {
+  margin-top: 48px;
+}
+
+.fixed-panel-heading {
+  position: fixed;
+  width: inherit;
 }
 
 #messenger-messages {
@@ -82,4 +99,19 @@ padding: 10px;
 
 .message {
 margin-bottom: 15px !important;
+}
+
+.message-actions {
+  float: right;
+  margin-left: 10px;
+}
+
+.message-actions .btn {
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.message-actions a {
+  color: #777;
 }

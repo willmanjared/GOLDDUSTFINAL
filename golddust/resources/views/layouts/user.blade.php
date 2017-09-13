@@ -62,9 +62,6 @@
 						</ul>
 		     </div>
 									
-									<!-- Notifications Feed Widget Right Side Of Navbar -->
-									<ul class="nav navbar-nav navbar-right">
-
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -73,6 +70,18 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+											
+											<!-- Notifications Feed Widget Right Side Of Navbar -->
+														<li class="dropdown">
+															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+																<i class="fa fa-bell-o" aria-hidden="true"></i>
+															</a>
+
+															<ul class="dropdown-menu" role="menu">
+																<li>You Don't Have Any Notifications At This Time</li>
+															</ul>
+														</li>
+											
                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

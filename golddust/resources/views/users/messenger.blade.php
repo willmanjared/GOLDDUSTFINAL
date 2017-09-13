@@ -5,7 +5,7 @@
     <div id="messenger-wrapper" class="row full-height">
         <div id="messenger-left" class="col-md-3">
             <div id="conversations" class="panel panel-default">
-                <div class="panel-heading">Conversations</div>
+                <div class="panel-heading fixed-panel-heading">Conversations</div>
 
                 <div class="panel-body">
 
@@ -26,13 +26,13 @@
 	<div id="messenger-right" class="col-md-9">
 	    <div id="messenger-messages">
 		<div id="messenger-conversation" class="panel panel-default">
-		    <div class="panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
+		    <div class="panel-heading fixed-panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
 		    <div class="panel-body">
-<?php //dd($data[0]['messages']); ?>
+
 			@foreach(array_reverse($data[0]['messages']) as $a)
 
 			<div class="message panel panel-default">
-                            <div class="panel-heading">
+       <div class="panel-heading">
 				<p class="message-name">
 				@if ($a['user_id'] == auth()->id())
 
@@ -45,10 +45,37 @@
 				@endif
 				</p>
 
-				<p class="message-date"">{{ $a['created_at'] }}</p>
+				<ul class="message-actions navbar-right">
+					<!-- Notifications Feed Widget Right Side Of Navbar -->
+					<!--
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+						</a>
+
+						<ul class="dropdown-menu" role="menu">
+
+						</ul>
+						
+					</li>
+        </ul>
+				-->
+				 
+				 <!-- Single button -->
+				<div class="btn-group message-actions">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Edit</a></li>
+						<li><a href="#">Delete</a></li>
+					</ul>
+				</div>
+				 
+				 <p class="message-date">{{ $a['created_at'] }}</p>
 
 			    </div>
-                            <div class="panel-body" style="overflow: auto;">
+      	<div class="panel-body">
 
 				{{ $a['body'] }}
 
@@ -83,4 +110,5 @@
 	</div>
     </div>
 </div>
+
 @endsection
