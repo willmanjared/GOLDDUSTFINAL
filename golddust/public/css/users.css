@@ -120,3 +120,73 @@ margin-bottom: 15px !important;
 .message-actions a {
   color: #777;
 }
+
+
+/* freelancer feed projects styles */
+
+.project-feed-wrapper {
+  
+}
+
+
+.project-feed-body, .project-feed-stats {
+  display: inline-block;
+  overflow: hidden;
+  padding: 5px;
+  vertical-align: top;
+}
+
+.project-feed-body {
+  width: 80%;
+}
+
+.project-feed-body p {
+  text-indent: 40px;
+}
+
+.project-feed-stats {
+  width: 19%;
+}
+
+.project-feed-stats > ul {
+  
+}
+
+.project-feed-stats > ul > li {
+  
+}
+
+.project-feed-stats > ul > li > label {
+  color: #3FA4F7;
+}
+
+
+
+
+
+
+/* BUSINESS STYLES */
+.create-button-wrapper {
+  
+}
+
+.create-button-wrapper > h3 {
+  border-bottom: 2px solid #ddd;
+  color: #3FA4F7;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.create-button {
+  /*
+  background-color: #3FA4F7;
+  border: 1px solid #234561;
+  border-radius: 50%;
+  color: #fff;
+  height: 5vw;
+  margin: auto;
+  width: 5vw;
+  */
+  margin-left: 25%;
+  width: 50%;
+}

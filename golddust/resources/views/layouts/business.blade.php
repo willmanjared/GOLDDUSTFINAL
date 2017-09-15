@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Gold Dust') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -62,9 +62,10 @@
 		    <!-- Center Of Navbar -->
 		    <div id="center-nav-wrapper">			
 						<ul class="nav navbar-nav">
-								<li><a href="{{ url('/b/dashboard') }}">Dashboard</a></li>
-								<li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
-                <li><a href="{{ route('projects') }}">Projects</a></li>
+								<li><a href="{{ route('businessdash') }}">Dashboard</a></li>
+								<li><a href="{{ route('businessmessenger')}}">Messages  <span id="note-messages" class="badge"></span></a></li>
+                <li><a href="{{ route('businessprojects') }}">Projects</a></li>
+								<li><a href="{{ route('businessteams') }}">Teams</a></li>
 						</ul>
 		     </div>
 									

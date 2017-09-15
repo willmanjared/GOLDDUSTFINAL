@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projects extends Model
 {
     //
-	$fillable = ['user_id', 'title', 'body, 'amount_spent', 'project_length_unit',
-	'project_length', 'payment_period', 'deliverables', 'skill_level', 'test_id'];
+	$fillable = ['user_id', 'title', 'body', 'status', 'amount_spent', 'project_length_unit', 'project_length', 'payment_period', 'deliverables', 'skill_level', 'test_id'];
 
 	public function user() {
 		return $this->belongsTo('App\User');
@@ -23,7 +22,7 @@ class Projects extends Model
 	}
 
 	public function test() {
-		return $this->belongsTo('App\Tests');
+		return $this->hasOne('App\Tests', 'test_id');
 	}
 
 	public function review() {

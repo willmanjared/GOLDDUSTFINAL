@@ -36,7 +36,9 @@ Route::get('/f/account', 'UserController@account')->name('account');
 // change user controller to business controller eventually
 
 Route::get('/b/dashboard', 'UserController@businessdash')->name('businessdash');
-Route::get('/b/projects', 'UserController@projects')->name('projects');
+Route::get('/b/messenger', 'UserController@businessmessenger')->name('businessmessenger');
+Route::get('/b/projects', 'UserController@businessprojects')->name('businessprojects');
+Route::get('/b/teams', 'UserController@businessteams')->name('businessteams');
 
 // MESSENGER ROUTES
 

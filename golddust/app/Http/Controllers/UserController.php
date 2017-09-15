@@ -153,8 +153,61 @@ $data = $b;
 		return view('business.dashboard');
 	}
 	
-	public function projects()
+	public function businessmessenger() 
+	{
+		
+			$a = Conversations::where('user_one', '=', auth()->id())
+			->orWhere( 'user_two', '=', auth()->id() )->get();
+			$b = json_decode($a, true);
+
+					$data = array();
+			if(count($a) > 0) {
+
+			for($i = 0; $i < count($a); $i++) {
+
+			// TRY ORDERBY FUNCTION ON MESSAGES
+			$d = json_decode($a[$i]->messages, true);
+		//	dd($d);
+			usort($d, function($a1, $a2) {
+					$v1 = strtotime($a1['created_at']);
+					$v2 = strtotime($a2['created_at']);
+					return $v2 - $v1; // $v1 - $v2 to reverse direction
+			});
+		//	$b[$i]['messages'] = [];
+			$b[$i]['messages'] = $d;
+			//var_dump($d);
+			}
+
+		usort($b, function($a1, $a2) {
+			 $v1 = strtotime($a1['messages'][0]['created_at']);
+			 $v2 = strtotime($a2['messages'][0]['created_at']);
+			 return $v2 - $v1; // $v1 - $v2 to reverse direction
+		});
+
+		for($i=0; $i<count($b); $i++) {
+		//$b[$i]['user'] = [];
+		$u;
+		if ($b[$i]['user_one'] !== auth()->id()) {
+		$u = json_decode(User::select('name', 'id')->find($b[$i]['user_one']), true);
+		}
+		if ($b[$i]['user_two'] !== auth()->id()) {
+		$u = json_decode(User::select('id', 'name')->find($b[$i]['user_two']), true);
+		}
+		$b[$i]['user'] = $u;
+		}
+		$data = $b;
+					}
+		//dd($b);
+		return view('business.messenger', compact('data'));
+	}
+	
+	public function businessprojects()
 	{
 		return view('business.projects');
+	}
+	
+	public function businessteams()
+	{
+		return view('business.teams');
 	}
 }
