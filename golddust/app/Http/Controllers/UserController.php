@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Messages;
 use App\Conversations;
+use App\Teams;
+use App\Tests;
 
 
 
@@ -30,6 +32,11 @@ class UserController extends Controller
     {
         return view('users.dashboard');
     }
+	
+		public function profile()
+		{
+			return view('public.profile');
+		}
 
     public function messenger()
     {
@@ -210,4 +217,11 @@ $data = $b;
 	{
 		return view('business.teams');
 	}
+	
+	public function businesstests()
+	{
+		return view('business.tests');
+	}
+	
+	
 }

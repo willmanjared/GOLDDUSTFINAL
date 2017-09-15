@@ -66,6 +66,7 @@
 								<li><a href="{{ route('businessmessenger')}}">Messages  <span id="note-messages" class="badge"></span></a></li>
                 <li><a href="{{ route('businessprojects') }}">Projects</a></li>
 								<li><a href="{{ route('businessteams') }}">Teams</a></li>
+								<li><a href="{{ route('businesstests') }}">Tests</a></li>
 						</ul>
 		     </div>
 									

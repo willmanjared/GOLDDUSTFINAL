@@ -11,7 +11,7 @@
                   <div class="create-button-wrapper">
                     <h3>Create A Project</h3>
                     
-                    <button class="create-button btn btn-primary form-control" value="project"><i class="fa fa-plus"></i></button>
+                    <button class="create-button btn btn-primary form-control" value="project" onclick="window.location='/createProject'"><i class="fa fa-plus"></i></button>
                   </div>
                 </div>
             </div>

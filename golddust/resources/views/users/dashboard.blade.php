@@ -42,6 +42,7 @@
                                 <li><label>Number of Proposals: </label>{{ $data["projects"][$i]['proposals_count'] }}</li>
                                 <li><label>Project Length: </label>{{ $data["projects"][$i]['project_length'] }} {{ $data["projects"][$i]['project_length_unit'] }}</li>
                                 <li><label>Deliverable Type: </label>{{ $data["projects"][$i]['deliverable'] }}</li>
+                                <li><label>Has Test: </label>{{ $data["projects"][$i]['test_id'] }}</li> <!-- THIS IS BUT ONLY A TEST ID -->
                               </ul>
                             </div>
                           </div>

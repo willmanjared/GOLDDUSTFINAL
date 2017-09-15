@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 //default route
 //Route::get('/home', 'HomeController@index')->name('home');
 
+
+// PUBLIC ROUTES
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+ROUTE::get('/profile', 'UserController@profile')->name('profile');
 
 
 // FREELANCER DASHBOARD ROUTES
@@ -39,6 +43,7 @@ Route::get('/b/dashboard', 'UserController@businessdash')->name('businessdash');
 Route::get('/b/messenger', 'UserController@businessmessenger')->name('businessmessenger');
 Route::get('/b/projects', 'UserController@businessprojects')->name('businessprojects');
 Route::get('/b/teams', 'UserController@businessteams')->name('businessteams');
+Route::get('/b/tests', 'UserController@businesstests')->name('businesstests');
 
 // MESSENGER ROUTES
 
@@ -56,4 +61,18 @@ ROUTE::get('/fire', function () {
   // this fires the event
     event(new App\Events\EventName());
     return "event fired";
+});
+
+// TEST FORM ROUTES
+
+ROUTE::get('/createProject', function () {
+  return view('test.createProject');
+});
+
+ROUTE::get('/createTeam', function () {
+  return view('test.createTeam');
+});
+
+ROUTE::get('/createTest', function () {
+  return view('test.createTest');
 });

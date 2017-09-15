@@ -11,7 +11,7 @@
                   <div class="create-button-wrapper">
                     <h3>Create A Team</h3>
                     
-                    <button class="create-button btn btn-primary form-control" value="team"><i class="fa fa-plus"></i></button>
+                    <button class="create-button btn btn-primary form-control" value="team" onclick="window.location='/createTeam'"><i class="fa fa-plus"></i></button>
                   </div>
                 </div>
             </div>
