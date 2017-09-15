@@ -29,9 +29,9 @@
 	    <div id="messenger-messages">
 		<div id="messenger-conversation" class="panel panel-default">
 				@if(count($data) > 0)
-		    <div class="panel-heading fixed-panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
+		    <div class="panel-heading fixed-panel-heading">{{ $data[0]['user']['name'] }}</div>
 				@else
-			<div class="panel-heading fixed-panel-heading">Conversation: </div>
+			<div class="panel-heading fixed-panel-heading"></div>
 			@endif
 		    <div class="panel-body">
 			
@@ -105,7 +105,7 @@
 				@if(count($data) > 0)
 			    <input id="reciever_id" type="hidden" name="reciever_id" value="{{ $data[0]['user']['id'] }}" />
 				@else
-					<input id="reciever_id" type="hidden" name="reciever_id" value="0" />
+					<input id="reciever_id" type="hidden" name="reciever_id" value="1" />
 				@endif
 
 			    <div class="input-group">
@@ -114,7 +114,7 @@
 								@if(count($data) > 0) 
         			    <button class="btn btn-primary" type="submit">Send</button>
 								@else
-									<button class="btn btn-primary" type="submit" disabled>Send</button>
+									<button class="btn btn-primary" type="submit">Send</button>
 								@endif
       				</span>
 			    </div>

@@ -44,7 +44,7 @@ class MessagesController extends Controller
         ['user_two', '=', auth()->id()],
 	])->get();
 //var_dump(json_decode($a, true));
-//dd();
+//dd($a);
 	if (count($a) > 0) {
 $a = json_decode($a[0], true);
 //dd($a['id']);
@@ -52,8 +52,10 @@ $a = json_decode($a[0], true);
 	Messages::create([
 		'conversation_id' => $a['id'],
 		'user_id' => auth()->id(),
-		'body' => $request['message'] 
+		'body' => htmlspecialchars($request['message']) 
 	]);
+		
+		
 
 	} else {
 		Conversations::create([
@@ -75,7 +77,7 @@ $b = Conversations::where([
 	Messages::create([
                 'conversation_id' => $b['id'],
 		'user_id' => auth()->id(), 
-                'body' => $request['message'] 
+                'body' => htmlspecialchars($request['message']) 
         ]);
 
 	}

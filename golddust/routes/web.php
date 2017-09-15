@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//THIS IS FOR TESTING ONLY
+// use Illuminate\Support\Facades\Redis;
 
 Auth::routes();
 
@@ -52,6 +54,12 @@ Route::post('/messenger/update', 'MessagesController@update');
 Route::post('/messenger/delete', 'MessagesController@delete');
 
 
+// FORM TESTING ROUTES
+Route::post('/create/test', 'TestsController@store');
+Route::post('/create/project', 'ProjectsController@store');
+Route::post('/create/teams', 'TeamsController@store');
+
+
 // TESTING ROUTES
 ROUTE::get('/test', function () {
   return view('test.test');
@@ -59,6 +67,16 @@ ROUTE::get('/test', function () {
 
 ROUTE::get('/fire', function () {
   // this fires the event
+  // 1. Publish event with Redis
+    // $data = [
+    //     'event' => 'UserSignedUp',
+    //     'data' => [
+    //         'username' => 'JohnDoe'
+    //     ]
+    // ];
+    // 2. Node.js + Redis subscribes to the event = sock.js
+    // Redis::publish('test-channel', json_encode($data));
+    // event(new App\Events\EventName($data));
     event(new App\Events\EventName());
     return "event fired";
 });

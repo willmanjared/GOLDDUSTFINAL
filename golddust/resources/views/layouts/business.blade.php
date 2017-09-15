@@ -97,6 +97,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
 																		<li>
+																			<a href="{{ route('profile') }}">Profile</a>
+																		</li>
+																		<li>
 																			<a href="{{ route('account') }}">Account</a>
 																		</li>
                                     <li>
