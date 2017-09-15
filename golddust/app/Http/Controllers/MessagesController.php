@@ -34,6 +34,7 @@ class MessagesController extends Controller
 	]);
 */
 //var_dump($request['reciever_id']);
+			if (isset($request['reciever_id'])) {
 
 	$a = Conversations::where([
 	['user_one', '=', auth()->id()],
@@ -81,6 +82,12 @@ $b = Conversations::where([
 
 
 	return redirect('/messenger');
+			
+		} else {
+	//end if
+				return "error";
+			}
+	
     }
 
     /**

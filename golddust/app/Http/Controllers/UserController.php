@@ -85,6 +85,9 @@ $c = $n['user_id'];
 	//var_dump($a[1]->messages);
 	//dd($a[0]->messages);
 	//$c = array();
+	$data = array();
+	if(count($a) > 0) {
+		
 	for($i = 0; $i < count($a); $i++) {
 
 	// TRY ORDERBY FUNCTION ON MESSAGES
@@ -118,6 +121,7 @@ $u = json_decode(User::select('id', 'name')->find($b[$i]['user_two']), true);
 $b[$i]['user'] = $u;
 }
 $data = $b;
+			}
 //dd($b);
 	return view('users.messenger', compact('data'));
     }

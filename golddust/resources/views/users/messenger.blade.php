@@ -8,7 +8,8 @@
                 <div class="panel-heading fixed-panel-heading">Conversations</div>
 
                 <div class="panel-body">
-
+									
+				@if(count($data) > 0)
 		   @foreach($data as $a)
 
 		    <div class="conversation">
@@ -18,6 +19,7 @@
                     </div>
 
 		   @endforeach
+			@endif
 
                 </div>
             </div>
@@ -26,9 +28,14 @@
 	<div id="messenger-right" class="col-md-9">
 	    <div id="messenger-messages">
 		<div id="messenger-conversation" class="panel panel-default">
+				@if(count($data) > 0)
 		    <div class="panel-heading fixed-panel-heading">Conversation: {{ $data[0]['user']['name'] }}</div>
+				@else
+			<div class="panel-heading fixed-panel-heading">Conversation: </div>
+			@endif
 		    <div class="panel-body">
-
+			
+			@if(count($data) > 0)
 			@foreach(array_reverse($data[0]['messages']) as $a)
 
 			<div class="message panel panel-default">
@@ -80,9 +87,10 @@
 				{{ $a['body'] }}
 
 			    </div>
-                        </div>
+      </div>
 
 			@endforeach
+			@endif
 
 		    </div>
 		</div>
@@ -94,13 +102,20 @@
 			<form action="/index.php/messenger/send" method="post">
 			{{ csrf_field() }}
               		@include('includes.formerror')
-
+				@if(count($data) > 0)
 			    <input id="reciever_id" type="hidden" name="reciever_id" value="{{ $data[0]['user']['id'] }}" />
+				@else
+					<input id="reciever_id" type="hidden" name="reciever_id" value="0" />
+				@endif
 
 			    <div class="input-group">
       				<input type="text" class="form-control" name="message" placeholder="Type message here...">
       				<span class="input-group-btn">
+								@if(count($data) > 0) 
         			    <button class="btn btn-primary" type="submit">Send</button>
+								@else
+									<button class="btn btn-primary" type="submit" disabled>Send</button>
+								@endif
       				</span>
 			    </div>
 			</form>
