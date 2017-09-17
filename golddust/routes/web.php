@@ -59,13 +59,15 @@ Route::post('/create/test', 'TestsController@store');
 Route::post('/create/project', 'ProjectsController@store');
 Route::post('/create/teams', 'TeamsController@store');
 
+// OBJECT VIEW ROUTES
+Route::get('/projects/{projects}', 'ProjectsController@show')->name('view_project');
 
 // TESTING ROUTES
-ROUTE::get('/test', function () {
+Route::get('/test', function () {
   return view('test.test');
 });
 
-ROUTE::get('/fire', function () {
+Route::get('/fire', function () {
   // this fires the event
   // 1. Publish event with Redis
     // $data = [
@@ -83,14 +85,14 @@ ROUTE::get('/fire', function () {
 
 // TEST FORM ROUTES
 
-ROUTE::get('/createProject', function () {
+Route::get('/createProject', function () {
   return view('test.createProject');
 });
 
-ROUTE::get('/createTeam', function () {
+Route::get('/createTeam', function () {
   return view('test.createTeam');
 });
 
-ROUTE::get('/createTest', function () {
+Route::get('/createTest', function () {
   return view('test.createTest');
 });

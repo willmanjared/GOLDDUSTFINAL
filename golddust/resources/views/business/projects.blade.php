@@ -30,11 +30,11 @@
                       <th>Actions</th>
                     </thead>
                     <tbody>
-                    @if (isset($data["projects"]) && count($data["projects"] > 0))
+                    @if (isset($data["projects"]) && count($data["projects"]) > 0)
                       @for($i=0; $i < count($data["projects"]); $i++)
                         <tr>
                           <th class="row">{{ $i }}</th>
-                          <td>{{ $data["projects"][$i]["name"] }}</td>
+                          <td>{{ $data["projects"][$i]["title"] }}</td>
                           <td>{{ $data["projects"][$i]["status"] }}</td>
                           <td>actions button bar...</td>
                         </tr>
@@ -66,7 +66,7 @@
                       <th>Actions</th>
                     </thead>
                     <tbody>
-                    @if (isset($data["teams"]) && count($data["deliverables"] > 0))
+                    @if (isset($data["teams"]) && count($data["deliverables"]) > 0)
                       @for($i=0; $i < count($data["deliverables"]); $i++)
                         <tr>
                           <th class="row">{{ $i }}</th>

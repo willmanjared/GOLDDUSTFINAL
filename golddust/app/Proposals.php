@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Proposals extends Model
 {
     //
-	$fillable = ['user_id', 'project_id', 'rate', 'body', 'resume', 'test_answer'];
+	protected $fillable = ['user_id', 'project_id', 'rate', 'body', 'resume', 'test_answer'];
 
 	public function user() {
 		return $this->belongsTo('App\User');

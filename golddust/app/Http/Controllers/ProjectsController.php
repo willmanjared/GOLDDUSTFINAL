@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projects;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -47,6 +48,20 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         //
+      
+      Projects::create([
+        'user_id' => auth()->id(),
+        'title' => $request['title'],
+        'body' => $request['body'],
+        'project_length' => $request['project_length'],
+        'project_length_unit' => $request['project_length_unit'],
+        'payment_period' => $request['payment_period'],
+        'skill_level' => $request['skill_level'],
+        'test_id' => $request['test_id']
+      ]);
+      
+      return redirect('/f/dashboard');
+      
     }
 
     /**
@@ -58,6 +73,8 @@ class ProjectsController extends Controller
     public function show(Projects $projects)
     {
         //
+      
+      return view('users.view_project', compact('projects'));
     }
 
     /**

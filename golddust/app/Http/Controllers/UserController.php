@@ -8,6 +8,7 @@ use App\Messages;
 use App\Conversations;
 use App\Teams;
 use App\Tests;
+use App\Projects;
 
 
 
@@ -30,7 +31,12 @@ class UserController extends Controller
      */
     public function dashboard()
     {
-        return view('users.dashboard');
+			
+			//$data["projects"] = auth()->user()->project;
+			$data["projects"] = Projects::all();
+			
+			//dd($data);
+        return view('users.dashboard', compact("data"));
     }
 	
 		public function profile()
@@ -210,7 +216,8 @@ $data = $b;
 	
 	public function businessprojects()
 	{
-		return view('business.projects');
+		$data["projects"] = auth()->user()->project;
+		return view('business.projects', compact('data'));
 	}
 	
 	public function businessteams()

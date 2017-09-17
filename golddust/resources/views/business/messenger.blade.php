@@ -1,8 +1,8 @@
 @extends('layouts.business')
 
 @section('content')
-<div class="container-fluid full-height">
-    <div id="messenger-wrapper" class="row full-height">
+<div class="container-fluid">
+    <div id="messenger-wrapper" class="row">
         <div id="messenger-left" class="col-md-3">
             <div id="conversations" class="panel panel-default">
                 <div class="panel-heading fixed-panel-heading">Conversations</div>
