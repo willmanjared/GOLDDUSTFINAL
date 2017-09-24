@@ -17,7 +17,7 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->integer('projects_id');
             $table->string('title')->nullable();
-            $table=>text('body')->nullable();
+            $table->text('body')->nullable();
             $table->timestamps();
         });
     }
