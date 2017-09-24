@@ -15,6 +15,10 @@ class CreateHiredsTable extends Migration
     {
         Schema::create('hireds', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('projects_id');
+            $table->integer('user_id')->nullable();
+            $table->integer('teams_id')->nullable();
+            $table->enum('hireds_type', ['user', 'teams']);
             $table->timestamps();
         });
     }

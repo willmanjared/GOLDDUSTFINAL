@@ -20,12 +20,12 @@ class CreateProjectsTable extends Migration
 	    			$table->text('body');
 	    			$table->integer('amount_spent')->nullable();
 	    			$table->enum('project_length_unit', ['days', 'weeks', 'months', 'indefinitely']);
-	    			$table->integer('project_length')->nullable();
+	    			$table->integer('project_length');
             $table->enum('payment_period', ['hourly', 'fixed', 'piece']);
-	    			$table->integer('deliverables')->nullable();
+	    			//$table->integer('deliverables')->nullable();
             $table->enum('skill_level', ['entry', 'intermediate', 'advanced']);
-						$table->enum('status', ['active', 'inactive', 'late', 'finished']);
-	    			$table->integer('test_id');
+						$table->enum('status', ['active', 'inactive', 'hired', 'late', 'finished']);
+	    			$table->integer('tests_id')->nullable();
             $table->timestamps();
         });
     }

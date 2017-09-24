@@ -15,12 +15,12 @@ class CreateProposalsTable extends Migration
     {
         Schema::create('proposals', function (Blueprint $table) {
             $table->increments('id');
-	    $table->integer('user_id');
-	    $table->integer('project_id');
-	    $table->integer('rate');
-	    $table->text('body')->nullable();
-	    $table->binary('resume')->nullable();
-  	    $table->text('test_answer');
+						$table->integer('user_id');
+						$table->integer('projects_id');
+						$table->integer('rate');
+						$table->text('body');
+						$table->binary('resume')->nullable();
+						$table->integer('answers_id')->nullable();
             $table->timestamps();
         });
     }

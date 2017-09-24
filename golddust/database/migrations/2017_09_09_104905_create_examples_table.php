@@ -15,12 +15,12 @@ class CreateExamplesTable extends Migration
     {
         Schema::create('examples', function (Blueprint $table) {
             $table->increments('id');
-	    $table->integer('user_id');
-	    $table->integer('step_id');
-	    $table->binary('file')->nullable();
-	    $table->string('link')->nullable();
-	    $table->string('title');
-	    $table->text('body');
+						$table->integer('user_id');
+						$table->integer('steps_id');
+						$table->binary('file')->nullable();
+						$table->string('link')->nullable();
+						$table->string('title');
+						$table->text('body');
             $table->timestamps();
         });
     }

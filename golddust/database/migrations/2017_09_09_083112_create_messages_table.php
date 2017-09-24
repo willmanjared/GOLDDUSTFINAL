@@ -15,12 +15,10 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-	    $table->integer('user_id');
-	    $table->integer('author_id');
-	    // ADDED ROW conversation_id WAY LATER
-	    // USELESS IDEA  $table->integer('conversation_id');
-	    $table->text('body');
-	    $table->boolean('read')->default("0");
+						$table->integer('user_id');
+						$table->integer('conversations_id');
+						$table->text('body');
+						$table->boolean('read')->default("0");
             $table->timestamps();
         });
     }
