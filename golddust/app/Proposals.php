@@ -16,4 +16,12 @@ class Proposals extends Model
 	public function project() {
 		return $this->belongsTo('App\Projects');
 	}
+	
+	/*
+	
+	public function has_applied() {
+		return $this->belongsTo('App\Projects');
+	}
+	
+	*/
 }

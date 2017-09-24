@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projects;
+use App\Proposals;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,10 @@ class ProjectsController extends Controller
     public function show(Projects $projects)
     {
      
-      $proposals = $projects->proposal;
+      $proposals = Proposals::where([
+        'user_id' => auth()->user()->id,
+        'project_id' => $projects->id
+      ])->get();
       
       return view('users.view_project', compact('projects', 'proposals'));
       

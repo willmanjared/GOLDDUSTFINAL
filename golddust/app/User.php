@@ -74,4 +74,5 @@ class User extends Authenticatable
         public function sentMessages() { 
                 return $this->hasMany('App\Messages', 'author_id');
         }
+	
 }

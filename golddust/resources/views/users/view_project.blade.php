@@ -1,6 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
@@ -24,9 +25,16 @@
         
         <div class="panel panel-default">
           <div class="panel-body">
+            
+            @if(isset($proposals) && !count($proposals) > 0)
             <button class="btn btn-primary form-control" onclick="$('#lightbox-container').fadeIn();">
               Apply
             </button>
+            @else
+              <button class="btn btn-default form-control" onclick="return false;">
+                Applied Already!
+              </button>
+            @endif
           </div>
         </div>
         
@@ -103,7 +111,7 @@
           
           @else
           
-            <p>There Aren't Any Proposals For This Project</p>
+            <p style="text-align: center;">You Have Not Applied Yet</p>
           
           @endif
         </div>
