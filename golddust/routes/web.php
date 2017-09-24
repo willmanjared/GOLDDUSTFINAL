@@ -65,6 +65,10 @@ Route::get('/projects/{projects}', 'ProjectsController@show')->name('view_projec
 Route::get('/f/proposal/{proposals}', 'ProposalsController@showf')->name('f_view_proposal');
 Route::get('/b/proposal/{proposals}', 'ProposalsController@showb')->name('b_view_proposal');
 
+
+// TEST RESOURCE ROUTES
+Route::get('/notifications', 'UserController@notifications')->name('notifications');
+
 // TESTING ROUTES
 Route::get('/test', function () {
   return view('test.test');

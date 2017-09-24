@@ -83,9 +83,10 @@
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 																<i class="fa fa-bell-o" aria-hidden="true"></i>
+																<span id="note-notifications" class="badge"></span>
 															</a>
 
-															<ul class="dropdown-menu" role="menu">
+															<ul id="notifications" class="dropdown-menu" role="menu">
 																<li><a href="#">You Don't Have Any Notifications At This Time</a></li>
 															</ul>
 														</li>
@@ -134,6 +135,9 @@
 
     <!-- USER JS -->
     <script src="{{ asset('js/users.js') }}"></script>
+
+		<!-- NOTIFICATIONS TEST -->
+		<script src="{{ asset('js/notifications.js') }}"></script>
 	
 		
 </body>

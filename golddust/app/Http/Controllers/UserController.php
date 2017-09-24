@@ -9,6 +9,7 @@ use App\Conversations;
 use App\Teams;
 use App\Tests;
 use App\Projects;
+//use App\Notifications\NewMessage;
 
 
 
@@ -23,6 +24,11 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+	
+	public function notifications() 
+	{
+		return auth()->user()->unreadNotifications()->get();
+	}
 
     /**
      * Show the application dashboard.

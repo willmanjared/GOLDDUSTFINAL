@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Conversations;
 use App\Messages;
+use App\User;
 use Illuminate\Http\Request;
+use App\Notifications\NewMessage;
 
 class MessagesController extends Controller
 {
+	
+		public function __construct()
+    {
+        $this->middleware('auth');
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -76,11 +84,16 @@ $b = Conversations::where([
 
 	Messages::create([
                 'conversations_id' => $b['id'],
-		'user_id' => auth()->id(), 
+								'user_id' => auth()->id(), 
                 'body' => htmlspecialchars($request['message']) 
         ]);
 
 	}
+				
+		$author = User::find($request['reciever_id']);
+		//dd($author);
+		
+		$author->notify(new NewMessage(auth()->user()));
 
 
 	return redirect('/messenger');
