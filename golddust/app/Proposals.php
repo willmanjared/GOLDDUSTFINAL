@@ -14,6 +14,6 @@ class Proposals extends Model
 	}
 
 	public function project() {
-		return $this->belongsTo('App\Proposals');
+		return $this->belongsTo('App\Projects');
 	}
 }

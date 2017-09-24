@@ -31,7 +31,10 @@
                   @if(isset($data["projects"]) && count($data["projects"]) > 0)
                     @for($i=0; $i < count($data["projects"]); $i++)
                       <div class="project-feed-wrapper panel panel-default">
-                        <div class="panel-heading"><a href="/projects/{{ $data['projects'][$i]['id'] }}">{{ $data["projects"][$i]['title'] }}</a></div>
+                        <div class="panel-heading">
+                          <a href="/projects/{{ $data['projects'][$i]['id'] }}">{{ $data["projects"][$i]['title'] }}</a>
+                          <!-- THIS NEEDS TO ECHO THE DATE DIFF FOR HUMANS -->
+                        </div>
                           <div class="panel-body">
                             <div class="project-feed-body">
                               <p>{{ $data["projects"][$i]['body'] }}</p>

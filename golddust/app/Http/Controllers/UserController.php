@@ -141,7 +141,8 @@ $data = $b;
 
     public function proposals()
     {
-			return view('users.proposals');
+			$proposals = auth()->user()->proposal;
+			return view('users.proposals', compact('proposals'));
     }
 
     public function stats()

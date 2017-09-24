@@ -58,9 +58,12 @@ Route::post('/messenger/delete', 'MessagesController@delete');
 Route::post('/create/test', 'TestsController@store');
 Route::post('/create/project', 'ProjectsController@store');
 Route::post('/create/teams', 'TeamsController@store');
+Route::post('/create/proposals', 'ProposalsController@store');
 
 // OBJECT VIEW ROUTES
 Route::get('/projects/{projects}', 'ProjectsController@show')->name('view_project');
+Route::get('/f/proposal/{proposals}', 'ProposalsController@showf')->name('f_view_proposal');
+Route::get('/b/proposal/{proposals}', 'ProposalsController@showb')->name('b_view_proposal');
 
 // TESTING ROUTES
 Route::get('/test', function () {

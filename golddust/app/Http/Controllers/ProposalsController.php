@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Proposals;
 use Illuminate\Http\Request;
+use App\User;
 
 class ProposalsController extends Controller
 {
+  
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +47,16 @@ class ProposalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Proposals::create([
+          'user_id' => auth()->id(),
+          'project_id' => $request['project_id'],
+          'body' => $request['body'],
+          'rate' => $request['rate'],
+          'resume' => $request['resume'],
+          'answer_id' => $request['answer_id']
+        ]);
+      
+      return redirect("/projects/". $request['id'] ."");
     }
 
     /**
@@ -44,9 +65,16 @@ class ProposalsController extends Controller
      * @param  \App\Proposals  $proposals
      * @return \Illuminate\Http\Response
      */
-    public function show(Proposals $proposals)
+    public function showf(Proposals $proposals)
     {
         //
+      return view('user.view_proposal', compact('proposals'));
+    }
+  
+    public function showb(Proposals $proposals)
+    {
+        //
+      return view('business.view_proposal', compact('proposals'));
     }
 
     /**

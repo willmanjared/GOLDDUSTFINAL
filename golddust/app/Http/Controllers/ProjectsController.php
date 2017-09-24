@@ -72,9 +72,11 @@ class ProjectsController extends Controller
      */
     public function show(Projects $projects)
     {
-        //
+     
+      $proposals = $projects->proposal;
       
-      return view('users.view_project', compact('projects'));
+      return view('users.view_project', compact('projects', 'proposals'));
+      
     }
 
     /**
