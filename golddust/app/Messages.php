@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Messages extends Model
 {
     //
-	protected $fillable = ['user_id', 'author_id', 'conversation_id', 'body', 'read'];
+	protected $fillable = ['user_id', 'conversations_id', 'body', 'read'];
 
 	public function user() {
 		return $this->belongsTo('App\User');
 	}
-
-	public function author() {
-	return $this->belongsTo('App\User', 'author_id');
+	
+	public function conversation() {
+		return $this->belongsTo('App\Conversations');
 	}
+
 }

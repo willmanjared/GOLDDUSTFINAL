@@ -76,7 +76,7 @@ class ProjectsController extends Controller
      
       $proposals = Proposals::where([
         'user_id' => auth()->user()->id,
-        'project_id' => $projects->id
+        'projects_id' => $projects->id
       ])->get();
       
       return view('users.view_project', compact('projects', 'proposals'));

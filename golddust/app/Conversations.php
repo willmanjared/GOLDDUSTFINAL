@@ -11,6 +11,6 @@ class Conversations extends Model
 
 	public function messages()
 	{
-		return $this->hasMany('App\Messages', 'conversation_id');
+		return $this->hasMany('App\Messages');
 	}
 }

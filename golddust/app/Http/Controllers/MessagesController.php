@@ -50,7 +50,7 @@ $a = json_decode($a[0], true);
 //dd($a['id']);
 
 	Messages::create([
-		'conversation_id' => $a['id'],
+		'conversations_id' => $a['id'],
 		'user_id' => auth()->id(),
 		'body' => htmlspecialchars($request['message']) 
 	]);
@@ -75,7 +75,7 @@ $b = Conversations::where([
 	$b = json_decode($b[0], true);
 
 	Messages::create([
-                'conversation_id' => $b['id'],
+                'conversations_id' => $b['id'],
 		'user_id' => auth()->id(), 
                 'body' => htmlspecialchars($request['message']) 
         ]);

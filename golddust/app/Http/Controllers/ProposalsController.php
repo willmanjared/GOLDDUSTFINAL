@@ -49,14 +49,14 @@ class ProposalsController extends Controller
     {
         Proposals::create([
           'user_id' => auth()->id(),
-          'project_id' => $request['project_id'],
+          'projects_id' => $request['project_id'],
           'body' => $request['body'],
           'rate' => $request['rate'],
           'resume' => $request['resume'],
           'answer_id' => $request['answer_id']
         ]);
-      
-      return redirect("/projects/". $request['id'] ."");
+      $pid = $request['project_id'];
+      return redirect("/projects/$pid");
     }
 
     /**

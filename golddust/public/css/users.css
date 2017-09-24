@@ -11,6 +11,10 @@ div, p, a, label, h1, h2, h3, h4, h5, h6, button, li {
 font-family: Raleway,sans-serif;
 }
 
+label {
+  color: #3FA4F7;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -162,10 +166,11 @@ margin-bottom: 15px !important;
   
 }
 
+/*
 .project-feed-stats > ul > li > label {
   color: #3FA4F7;
 }
-
+*/
 
 
 

@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Projects extends Model
 {
     //
-	protected $fillable = ['user_id', 'title', 'body', 'status', 'amount_spent', 'project_length_unit', 'project_length', 'payment_period', 'deliverables', 'skill_level', 'test_id'];
+	protected $fillable = ['user_id', 'title', 'body', 'status', 'amount_spent', 'project_length_unit', 'project_length', 'payment_period', 'deliverables', 'skill_level', 'tests_id'];
 
 	public function user() {
 		return $this->belongsTo('App\User');
 	}
 
 	public function proposal() {
-		return $this->hasMany('App\Proposals', 'project_id');
+		return $this->hasMany('App\Proposals');
 	}
 	
 	/*
@@ -35,7 +35,7 @@ class Projects extends Model
 	}
 
 	public function test() {
-		return $this->hasOne('App\Tests', 'test_id');
+		return $this->hasOne('App\Tests');
 	}
 
 	public function review() {
