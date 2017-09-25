@@ -142,6 +142,9 @@
 		<!-- MESSAGES JS -->
 		<script src="{{ asset('js/messages.js') }}"></script>
 	
+		<!-- SOCKET JS LOGIC -->
+		<script src="{{ asset('js/sockets.js') }}"></script>
+	
 	
 		
 </body>

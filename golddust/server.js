@@ -13,7 +13,11 @@ redis.on('message', function(channel, message) {
     message = JSON.parse(message);
     io.emit(channel + ':' + message.event, message.data);
 });
+
+socket.on('disconnect', function () {
+   console.log('DISCONNECT')
+});
+
 http.listen(3000, function(){
     console.log('Listening on Port 3000');
-  
 });
