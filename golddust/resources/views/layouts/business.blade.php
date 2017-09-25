@@ -86,7 +86,7 @@
 																<span id="note-notifications" class="badge"></span>
 															</a>
 
-															<ul class="dropdown-menu" role="menu">
+															<ul id="notifications" class="dropdown-menu" role="menu">
 																<li><a href="#">You Don't Have Any Notifications At This Time</a></li>
 															</ul>
 														</li>
