@@ -3,19 +3,29 @@
 			 $.get('/notifications', function (data) {
 				 console.log(data);
 				 if(data && data.length > 0) {
-           
-					 $("#notifications").html(" ");
-					 
-						// notification badge
-					 $("#note-notifications").html("!");
 
 					 // messages badge
 					 $("#note-messages").html(count_notifications(data, "type", "AppNotificationsNewMessage"));
 					 
-					 // notification dropdown
-					 for(var i = 0; i < data.length; i++) {
-					  	$("#notifications").append("<li><a href='messages'>"+ data[i]['data']['type'] +": </br> From: "+ data[i]['data']['author_name'] +"</a></li>");
-				 	 }
+					 var nc = data.length - count_notifications(data, "type", "AppNotificationsNewMessage");
+					 
+					 if (nc > 0) {
+						 
+						 // notification badge
+						 $("#notifications").html(" ");
+					 	 $("#note-notifications").html("!");
+						 
+						 // notification dropdown
+						 for(var i = 0; i < nc; i++) {
+							 /* disabling for now
+							 // FOR MESSAGES
+							 if (data[i]['type'] == "NewMessage") {
+								$("#notifications").append("<li><a href='messages'>"+ data[i]['data']['type'] +": </br> From: "+ data[i]['data']['author_name'] +"</a></li>");
+							 }
+							 */
+						 }
+						 
+					 }
 					 
 				 }
 				 
