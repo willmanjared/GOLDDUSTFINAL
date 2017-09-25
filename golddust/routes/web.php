@@ -67,7 +67,8 @@ Route::get('/b/proposal/{proposals}', 'ProposalsController@showb')->name('b_view
 
 
 // TEST RESOURCE ROUTES
-Route::get('/notifications', 'UserController@notifications')->name('notifications');
+Route::get('/notifications', 'UserController@notifications')->name('get_notifications');
+Route::get('/conversations/{conversations}', 'ConversationsController@show')->name('get_conversations');
 
 // TESTING ROUTES
 Route::get('/test', function () {

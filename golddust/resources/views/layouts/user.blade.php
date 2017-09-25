@@ -136,9 +136,13 @@
     <!-- USER JS -->
     <script src="{{ asset('js/users.js') }}"></script>
 
-		<!-- NOTIFICATIONS TEST -->
+		<!-- NOTIFICATIONS JS -->
 		<script src="{{ asset('js/notifications.js') }}"></script>
 	
+		<!-- MESSAGES JS 	-->
+		<script src="{{ asset('js/messages.js') }}"></script>
+	
+
 		
 </body>
 </html>

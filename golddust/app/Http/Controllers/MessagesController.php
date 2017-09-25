@@ -125,6 +125,7 @@ $b = Conversations::where([
     public function show(Messages $messages)
     {
         //
+			//return response()->json($messages);
     }
 
     /**

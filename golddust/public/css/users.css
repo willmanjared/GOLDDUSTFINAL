@@ -27,6 +27,10 @@ body > .container-fluid {
   overflow: auto !important;
 }
 
+.badge {
+  background-color: #2579a9;
+}
+
 #app > nav {
   margin: 0;
 }
@@ -106,10 +110,23 @@ height: calc(100% - 68px);
 }
 
 .conversation {
-border: 1px solid #d3e0e9;
-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-margin: 5px 0 5px 0;
-padding: 10px;
+  background-color: #fff;
+  border: 1px solid #d3e0e9;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  color: #636b6f;
+  margin: 5px 0 5px 0;
+  padding: 10px;
+  transition: all 0.6s;
+}
+
+.conversation:hover {
+  cursor: "pointer" !important;
+}
+
+.conversation-active {
+  background-color: #2579a9;
+  color: #fff;
+  transition: all 0.6s;
 }
 
 .message {

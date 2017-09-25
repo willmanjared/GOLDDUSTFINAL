@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var Redis = require('ioredis');
 var redis = new Redis();
+
 redis.subscribe('test-channel', function(err, count) {
   console.log("connected");
 });

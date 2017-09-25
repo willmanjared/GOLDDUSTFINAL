@@ -12,7 +12,7 @@
 				@if(count($data) > 0)
 		   @foreach($data as $a)
 
-		    <div class="conversation">
+		    <div class="conversation" data-value="{{ $a['user']['id'] }}">
                         <div class="conversation-body">
                             {{ $a['user']['name'] }}
                         </div>
@@ -51,10 +51,11 @@
 
 				@endif
 				</p>
-
+				
+				<!-- Notifications Feed Widget Right Side Of Navbar -->
+				<!--
 				<ul class="message-actions navbar-right">
-					<!-- Notifications Feed Widget Right Side Of Navbar -->
-					<!--
+					
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 							<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -68,6 +69,7 @@
         </ul>
 				-->
 				 
+				 @if ($a['user_id'] == auth()->id())
 				 <!-- Single button -->
 				<div class="btn-group message-actions">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,6 +80,7 @@
 						<li><a href="#">Delete</a></li>
 					</ul>
 				</div>
+				 @endif
 				 
 				 <p class="message-date">{{ $a['created_at'] }}</p>
 
@@ -125,5 +128,64 @@
 	</div>
     </div>
 </div>
+
+<script>
+		$( document ).ready(function () {
+			$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+			$(".conversation:first").addClass("conversation-active");
+			$("body .conversation").click(function (ev) {
+				var url = "/conversations/"+ $(this).attr('data-value') +"";
+				//alert(a);
+				//console.log(url);
+				$(this).parent().children(".conversation-active").removeClass("conversation-active");
+				$(this).addClass("conversation-active");
+
+				$.get(url, function (data) {
+					//var a = JSON.parse(data);
+					//console.log(data, data.length, data[0]);
+					//console.log(data[0].name);
+					$("#messenger-conversation > .panel-heading").html(data[0].user.name);
+					$("#messenger-conversation > .panel-body").html(" ");
+					$("#reciever_id").val(data[0].user.id);
+					$.each(data[0].messages, function (i,v) {
+
+						//console.log(v);
+						var r = '<div class="message panel panel-default"><div class="panel-heading"><p class="message-name">';
+						if (v['user_id'] == "{{ auth()->id() }}") {
+
+						r += "{{ auth()->user()->name }}";
+
+						} else {
+
+							 r += data[0]['user']['name'];
+
+						}
+							r += '</p>';
+
+							if (v['user_id'] == "{{ auth()->id() }}") {
+
+								r += '<div class="btn-group message-actions"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+								'<i class="fa fa-ellipsis-h" aria-hidden="true"></i></button><ul class="dropdown-menu"><li><a href="#">Edit</a></li><li><a href="#">Delete</a></li></ul></div>';
+
+							}
+
+								r += '<p class="message-date">' +
+								v['created_at'] +
+								'</p></div>';
+
+							r += '<div class="panel-body">' +
+							v['body'] +
+							'</div></div>';
+
+						$("#messenger-conversation > .panel-body").append(r);
+					});
+
+					$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+
+				});
+
+			});
+		});
+</script>
 
 @endsection

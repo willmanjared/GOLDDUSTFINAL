@@ -139,6 +139,10 @@
 		<!-- NOTIFICATIONS JS -->
 		<script src="{{ asset('js/notifications.js') }}"></script>
 	
+		<!-- MESSAGES JS -->
+		<script src="{{ asset('js/messages.js') }}"></script>
+	
+	
 		
 </body>
 </html>
