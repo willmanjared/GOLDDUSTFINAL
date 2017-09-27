@@ -25,6 +25,7 @@
 	
 	    <!-- JQUERY -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	
 			<!-- Socket io -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 
@@ -142,6 +143,14 @@
 		<!-- MESSAGES JS 	-->
 		<script src="{{ asset('js/messages.js') }}"></script>
 	
+	<script>
+		var socket = io('http://{{ Request::getHost() }}:3000');
+
+		socket.on("test-channel:App\\Events\\UserLogin", function (e) {
+			console.log("USER LOGGED IN");
+		});
+	</script>
+		
 
 		
 </body>
