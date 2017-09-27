@@ -45,7 +45,7 @@ class NewMessage implements ShouldBroadcast
   // THE WILDCARD CHANNEL IS NOT BROADCASTING EVENTS CORRECTLY FOR REASONS I DONT KNOW
   
   public function broadcastAs() {
-    return "user-". $this->message['user_id'] . "";
+    return "user-". $this->message['user_id'] . "-message";
     //return 'user-1';
   }
 }

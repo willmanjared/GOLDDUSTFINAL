@@ -146,7 +146,7 @@
 	<script>
 		var socket = io('http://{{ Request::getHost() }}:3000');
 
-		socket.on("test-channel:user-{{ auth()->id() }}", function (res) {
+		socket.on("test-channel:user-{{ auth()->id() }}-message", function (res) {
 			res = res.message;
 			console.log("USER GOT NEW MESSAGE");
 			//console.log(res);
