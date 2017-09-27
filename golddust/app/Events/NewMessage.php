@@ -10,18 +10,22 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class NewMessage
+
+class NewMessage implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $message;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message)
     {
         //
+        $this->message = $message;
+      //dd("user-". $this->message->reciever_id . "");
     }
 
     /**
@@ -31,6 +35,17 @@ class NewMessage
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        //dd($this->message->reciever_id);
+        //return new PrivateChannel('channel-name');
+        //return ['user-'. $this->message->reciever_id];
+      return ['test-channel'];
     }
+  
+  // THE ONLY WAY THIS IS SEEMING TO WORK IS WITH THIS BROADCASR AS FUNCTION
+  // THE WILDCARD CHANNEL IS NOT BROADCASTING EVENTS CORRECTLY FOR REASONS I DONT KNOW
+  
+  public function broadcastAs() {
+    return "user-". $this->message['user_id'] . "";
+    //return 'user-1';
+  }
 }

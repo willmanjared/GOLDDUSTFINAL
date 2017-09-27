@@ -23,6 +23,18 @@
 					console.log(message);
             $('#power').text(parseInt($('#power').text()) + parseInt(message.data.power));
         });
+		
+		socket.on("user-1:App\\Events\\EventName", function(message){
+            // increase the power everytime we load test route
+					console.log(message);
+           // $('#power').text(parseInt($('#power').text()) + parseInt(message.data.power));
+        });
+		socket.on("test-channel:user-1", function(message){
+            // increase the power everytime we load test route
+					console.log(message);
+           // $('#power').text(parseInt($('#power').text()) + parseInt(message.data.power));
+        });
+		
     </script>
 
 </body>

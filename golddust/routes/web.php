@@ -32,7 +32,7 @@ ROUTE::get('/profile', 'UserController@profile')->name('profile');
 // change user controller to freelancer controller eventually
 
 Route::get('/f/dashboard', 'UserController@dashboard')->name('dashboard');
-Route::get('/messenger', 'UserController@messenger')->name('messenger');
+Route::get('/f/messenger', 'UserController@messenger')->name('messenger');
 Route::get('/f/proposals', 'UserController@proposals')->name('proposals');
 Route::get('/f/tasks', 'UserController@tasks')->name('tasks');
 Route::get('/f/stats', 'UserController@stats')->name('stats');
@@ -50,6 +50,7 @@ Route::get('/b/tests', 'UserController@businesstests')->name('businesstests');
 // MESSENGER ROUTES
 
 Route::post('/messenger/send', 'MessagesController@create');
+//Route::get('/messenger/send', 'MessagesController@create');
 Route::post('/messenger/update', 'MessagesController@update');
 Route::post('/messenger/delete', 'MessagesController@delete');
 

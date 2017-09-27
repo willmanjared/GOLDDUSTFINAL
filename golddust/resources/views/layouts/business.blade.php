@@ -146,7 +146,13 @@
 		<!-- SOCKET JS LOGIC -->
 		<script src="{{ asset('js/sockets.js') }}"></script>
 	
-	
+		<script>
+			var socket = io('http://{{ Request::getHost() }}:3000');
+
+			socket.on("test-channel:user-{{ auth()->id() }}", function (e) {
+				console.log("USER GOT NEW MESSAGE");
+			});
+		</script>
 		
 </body>
 </html>

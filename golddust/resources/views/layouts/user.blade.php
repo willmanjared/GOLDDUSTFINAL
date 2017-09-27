@@ -64,7 +64,7 @@
 		    <div id="center-nav-wrapper">			
 						<ul class="nav navbar-nav">
 								<li><a href="{{ url('/f/dashboard') }}">Dashboard</a></li>
-								<li><a href="{{ url('/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
+								<li><a href="{{ url('/f/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
 								<li><a href="{{ url('/f/proposals') }}">Proposals</a></li>
 								<li><a href="{{ url('/f/tasks') }}">Tasks</a></li>
 								<li><a href="{{ url('/f/stats') }}">Stats</a></li>
@@ -146,8 +146,20 @@
 	<script>
 		var socket = io('http://{{ Request::getHost() }}:3000');
 
-		socket.on("test-channel:App\\Events\\UserLogin", function (e) {
-			console.log("USER LOGGED IN");
+		socket.on("test-channel:user-{{ auth()->id() }}", function (res) {
+			res = res.message;
+			console.log("USER GOT NEW MESSAGE");
+			//console.log(res);
+			//console.log($("input[name='reciever_id']").val());
+			//console.log(res['reciever_id']);
+			
+			if ($("input[name='reciever_id']").val() == res['reciever_id']) {
+				console.log("SOCKET APPEND NEW MESSAGE");
+				//res['user_id'] = res["reciever_id"];
+				//res['reciever_id'] = res['user_id'];
+				//socketAppendMessage(res);
+				appendNewMessage(res);
+			}
 		});
 	</script>
 		

@@ -103,7 +103,7 @@
 		<div class="panel panel-default">
 		    <div class="panel-body">
 			<!-- THIS ACTION FOR THE FORM NEEDS TO BE FIXED --- TEMP FIX BECAUSE THE ROUTES ARE FUCKED -->
-			<form action="/index.php/messenger/send" method="post">
+			<form id="messenger-form" action="/messenger/send" method="post">
 			{{ csrf_field() }}
               		@include('includes.formerror')
 				@if(count($data) > 0)
@@ -131,6 +131,9 @@
 </div>
 
 <script>
+		var auid = "{{ auth()->id() }}";
+		var aname = "{{ auth()->user()->name }}";
+	
 		$( document ).ready(function () {
 			$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
 			$(".conversation:first").addClass("conversation-active");
@@ -142,6 +145,7 @@
 				$(this).addClass("conversation-active");
 
 				$.get(url, function (data) {
+					
 					//var a = JSON.parse(data);
 					//console.log(data, data.length, data[0]);
 					//console.log(data[0].name);
@@ -152,9 +156,9 @@
 
 						//console.log(v);
 						var r = '<div class="message panel panel-default"><div class="panel-heading"><p class="message-name">';
-						if (v['user_id'] == "{{ auth()->id() }}") {
+						if (v['user_id'] == auid) {
 
-						r += "{{ auth()->user()->name }}";
+						r += aname;
 
 						} else {
 
@@ -163,7 +167,7 @@
 						}
 							r += '</p>';
 
-							if (v['user_id'] == "{{ auth()->id() }}") {
+							if (v['user_id'] == auid) {
 
 								r += '<div class="btn-group message-actions"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
 								'<i class="fa fa-ellipsis-h" aria-hidden="true"></i></button><ul class="dropdown-menu"><li><a href="#">Edit</a></li><li><a href="#">Delete</a></li></ul></div>';
@@ -187,6 +191,83 @@
 
 			});
 		});
+	
+	function appendNewMessage(data) {
+		
+		//console.log(v);
+						var r = '<div class="message panel panel-default"><div class="panel-heading"><p class="message-name">';
+						if (data['reciever_id'] == auid) {
+
+						r += aname;
+
+						} else {
+
+							 r += data["user"];
+
+						}
+							r += '</p>';
+
+							if (data['reciever_id'] == auid) {
+
+								r += '<div class="btn-group message-actions"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+								'<i class="fa fa-ellipsis-h" aria-hidden="true"></i></button><ul class="dropdown-menu"><li><a href="#">Edit</a></li><li><a href="#">Delete</a></li></ul></div>';
+
+							}
+
+								r += '<p class="message-date">' +
+								data['created_at'].date +
+								'</p></div>';
+
+							r += '<div class="panel-body">' +
+							data['message'] +
+							'</div></div>';
+
+						$("#messenger-conversation > .panel-body").append(r);
+					
+			$("#messenger-form input[name='message']").val("");
+		
+		
+			$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+		
+	}
+	
+	
+	$("#messenger-form").submit(function (ev) {
+		ev.preventDefault();
+		
+		
+		//console.log($(this));
+		//console.log($("#messenger-form input[name='_token']").val());
+		/*
+		$.ajax({
+			type: "POST",
+			action: "http://ec2-34-210-133-115.us-west-2.compute.amazonaws.com/messenger/send",
+			dataType: "JSON",
+			data: { "_token": $("#messenger-form input[name='_token']").val() },
+			success: function (ev) {
+				console.log(ev);
+			},
+			error: function (ev) {
+				console.log(ev);
+			}
+		});
+		*/
+		var ob = { 
+			"_token": $("#messenger-form input[name='_token']").val(),
+			"reciever_id": $("#messenger-form input[name='reciever_id']").val(),
+			"message": $("#messenger-form input[name='message']").val()
+		};
+		$.post("//ec2-34-210-133-115.us-west-2.compute.amazonaws.com/messenger/send", ob, function(res){
+        // Do something with the response `res`
+        console.log(res);
+        // Don't forget to hide the loading indicator!
+			if ($("input[name='reciever_id']").val() == res['user_id']) {
+				console.log("APPEND NEW MESSAGE");
+				appendNewMessage(res);
+			}
+    });
+		//return false;
+	});
 </script>
 
 @endsection
