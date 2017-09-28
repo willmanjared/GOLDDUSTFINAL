@@ -307,5 +307,23 @@ margin-bottom: 15px !important;
 
 
 
+/* BUSINESS DASHBOARD */
+
+.project-note-body {
+  display: inline-block;
+  min-height: 70px;
+  width: 80%;
+}
+
+.project-note-actions {
+  border-left: 1px solid #d3e0e9;
+  float: right;
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+  width: 20%;
+}
+
+
 
 /* ##########################################*/

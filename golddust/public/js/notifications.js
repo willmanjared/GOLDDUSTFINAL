@@ -53,32 +53,41 @@
 			
 			function appendProjectNote(data) {
 				var r = "<div class='panel panel-default'><div class='panel-heading'>";
+				var a = new Date(data['created_at']['date']);
 				
 				r += "" + ucfirst(data['action']) + " " + ucfirst(data['resource']) + "";
+				
+				r += "<p style='float: right'>"+ a +"</p>";
 				
 				r += "</div><div class='panel-body'>";
 				
 				r += "<div class='project-note-body'>";
 				
-				r += data['body'];
+				r += "<p>"+ data['body'] + "</p>";
 				
-				r += "<br/>";
+				//r += "<br/>";
 				
-				r += "<a href='/"+ data['resource'] +"s/"+ data["projects_id"] + ">"+ data['title'] +"</a>";
+				r += "<a href='/"+ data['resource'] +"s/"+ data["projects_id"] + "'>"+ data['title'] +"</a>";
 				
 				r += "</div>";
 				
+				
+				
 				r += "<div class='project-note-actions'>";
+				
+				r += "<a class='btn btn-default form-control' href='/b/projects'>Edit Project</a>";
 				
 				r += "";
 				
 				r += "</div>";
+				
 				
 				r += "</div>";
 				
 				r += "</div>";
 				
 				$("#business-dashboard-feed").append(r);
+				console.log("something");
 				
 			}
 

@@ -28,6 +28,9 @@
 	
 			<!-- Socket io -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+	
+			<!-- MOMENT JS -->
+			<script src="https://cdn.jsdelivr.net/npm/moment@2.18.1/moment.js"></script>
 
 </head>
 <body>
