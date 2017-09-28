@@ -103,7 +103,7 @@
 		<div class="panel panel-default">
 		    <div class="panel-body">
 			<!-- THIS ACTION FOR THE FORM NEEDS TO BE FIXED --- TEMP FIX BECAUSE THE ROUTES ARE FUCKED -->
-			<form id="messenger-form" action="/messenger/send" method="post">
+			<form id="messenger-form" action="/messenger/send" method="post" autocomplete="off">
 			{{ csrf_field() }}
               		@include('includes.formerror')
 				@if(count($data) > 0)

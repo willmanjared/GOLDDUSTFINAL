@@ -10,15 +10,18 @@ use Illuminate\Notifications\Messages\MailMessage;
 class NewTask extends Notification
 {
     use Queueable;
+  
+    protected $task;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($task)
     {
         //
+        $this->task = $task;
     }
 
     /**
@@ -29,7 +32,21 @@ class NewTask extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
+    }
+  
+    public function toDatabase($notifiable)
+    {
+      
+      return [
+        'tasks_id' => $this->task['tasks_id'],
+        'action' => $this->task['action'],
+        'body' => $this->task['body'],
+        'resource' => $this->task['resource'],
+        'teams_id' => $this->task['teams_id'],
+        'user_id' => $this->task['user_id']
+      ];
+      
     }
 
     /**
@@ -37,7 +54,7 @@ class NewTask extends Notification
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
-     */
+     
     public function toMail($notifiable)
     {
         return (new MailMessage)
@@ -45,17 +62,17 @@ class NewTask extends Notification
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
-
+*/
     /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return array
-     */
+     
     public function toArray($notifiable)
     {
         return [
             //
         ];
-    }
+    }*/
 }

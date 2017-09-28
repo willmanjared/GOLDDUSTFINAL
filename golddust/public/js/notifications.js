@@ -23,6 +23,11 @@
 								$("#notifications").append("<li><a href='messages'>"+ data[i]['data']['type'] +": </br> From: "+ data[i]['data']['author_name'] +"</a></li>");
 							 }
 							 */
+							 if (data[i]['type'] !== "NewMessage") { console.log(data[i]['data']); }
+							 if (data[i]['data']['resource'] == 'project') {
+								 $("#notifications").append("<li><a href='#'>"+ data[i]['data']['resource'] +" "+ data[i]['data']['action'] +"<br/>"+ data[i]['data']['title'] +"</a></li>");
+								 if($("#business-dashboard-feed")) { appendProjectNote(data[i]['data']); }
+							 }
 						 }
 						 
 					 }
@@ -44,3 +49,42 @@
 				return count;
 			}
 		}
+		
+			
+			function appendProjectNote(data) {
+				var r = "<div class='panel panel-default'><div class='panel-heading'>";
+				
+				r += "" + ucfirst(data['action']) + " " + ucfirst(data['resource']) + "";
+				
+				r += "</div><div class='panel-body'>";
+				
+				r += "<div class='project-note-body'>";
+				
+				r += data['body'];
+				
+				r += "<br/>";
+				
+				r += "<a href='/"+ data['resource'] +"s/"+ data["projects_id"] + ">"+ data['title'] +"</a>";
+				
+				r += "</div>";
+				
+				r += "<div class='project-note-actions'>";
+				
+				r += "";
+				
+				r += "</div>";
+				
+				r += "</div>";
+				
+				r += "</div>";
+				
+				$("#business-dashboard-feed").append(r);
+				
+			}
+
+
+// ADD TO GLOBAL JS FUNCTIONS
+function ucfirst(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

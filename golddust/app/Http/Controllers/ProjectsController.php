@@ -6,6 +6,7 @@ use App\Projects;
 use App\Proposals;
 use App\User;
 use Illuminate\Http\Request;
+use App\Notifications\NewProject;
 
 class ProjectsController extends Controller
 {
@@ -50,7 +51,7 @@ class ProjectsController extends Controller
     {
         //
       
-      Projects::create([
+      $a = Projects::create([
         'user_id' => auth()->id(),
         'title' => $request['title'],
         'body' => $request['body'],
@@ -60,6 +61,20 @@ class ProjectsController extends Controller
         'skill_level' => $request['skill_level'],
         'test_id' => $request['test_id']
       ]);
+      
+      $note = [
+        'user_id' => auth()->id(),
+        'hired_id' => null,
+        'action' => 'new',
+        'body' => 'You created a new project',
+        'resource' => 'project',
+        'teams_id' => null,
+        'projects_id' => $a->id,
+        'title' => $a->title,
+        'created_at' => $a->created_at
+      ];
+      
+      auth()->user()->notify(new NewProject($note));
       
       return redirect('/f/dashboard');
       

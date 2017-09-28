@@ -7,14 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Business Dashboard</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                <div id="business-dashboard-feed" class="panel-body">
+                    
                 </div>
             </div>
         </div>
