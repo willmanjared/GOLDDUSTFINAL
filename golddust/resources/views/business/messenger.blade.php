@@ -134,7 +134,7 @@
 		var aname = "{{ auth()->user()->name }}";
 	
 		$( document ).ready(function () {
-			$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+			$("#messenger-conversation > .panel-body").scrollTop($("#messenger-conversation > .panel-body")[0].scrollHeight);
 			$(".conversation:first").addClass("conversation-active");
 			$("body .conversation").click(function (ev) {
 				var url = "/conversations/"+ $(this).attr('data-value') +"";
@@ -184,7 +184,7 @@
 						$("#messenger-conversation > .panel-body").append(r);
 					});
 
-					$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+					$("#messenger-conversation > .panel-body").scrollTop($("#messenger-conversation > .panel-body")[0].scrollHeight);
 
 				});
 
@@ -226,7 +226,7 @@
 			$("#messenger-form input[name='message']").val("");
 		
 		
-			$("#messenger-conversation").scrollTop($("#messenger-conversation")[0].scrollHeight);
+			$("#messenger-conversation > .panel-body").scrollTop($("#messenger-conversation > .panel-body")[0].scrollHeight);
 		
 	}
 	

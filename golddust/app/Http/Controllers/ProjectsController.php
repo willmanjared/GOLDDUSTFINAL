@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Projects;
 use App\Proposals;
+use App\Deliverables;
+use App\Hired;
 use App\User;
 use Illuminate\Http\Request;
 use App\Notifications\NewProject;
@@ -95,6 +97,25 @@ class ProjectsController extends Controller
       ])->get();
       
       return view('users.view_project', compact('projects', 'proposals'));
+      
+    }
+  
+    public function showb(Projects $projects)
+    {
+     
+      $proposals = Proposals::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      $deliverables = Deliverables::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      $hireds = Hired::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      return view('business.view_project', compact('projects', 'proposals', 'deliverables', 'hireds'));
       
     }
 

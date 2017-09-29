@@ -63,6 +63,7 @@ Route::post('/create/proposals', 'ProposalsController@store');
 
 // OBJECT VIEW ROUTES
 Route::get('/projects/{projects}', 'ProjectsController@show')->name('view_project');
+Route::get('/b/projects/{projects}', 'ProjectsController@showb')->name('b_view_project');
 Route::get('/f/proposal/{proposals}', 'ProposalsController@showf')->name('f_view_proposal');
 Route::get('/b/proposal/{proposals}', 'ProposalsController@showb')->name('b_view_proposal');
 

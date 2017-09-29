@@ -75,7 +75,7 @@
 				
 				r += "<div class='project-note-actions'>";
 				
-				r += "<a class='btn btn-default form-control' href='/b/projects'>Edit Project</a>";
+				r += "<a class='btn btn-default form-control' href='/b/projects/"+ data['projects_id'] +"'>View Details</a>";
 				
 				r += "";
 				

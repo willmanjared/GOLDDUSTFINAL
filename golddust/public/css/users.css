@@ -35,6 +35,57 @@ body > .container-fluid {
   margin: 0;
 }
 
+.panel-dropdown {
+  transition: all 0.6s;
+}
+
+.panel-dropdown:hover > .panel-heading {
+  cursor: pointer;
+  background-color: #2579a9;
+  color: #fff;
+}
+
+.panel-dropdown:hover > .panel-heading label {
+  color: #fff;
+  transition: all 0.6s;
+}
+
+.panel-dropdown > .panel-heading {
+  transition: all 0.6s;
+}
+
+.panel-dropdown > .panel-body {
+  display: none;
+}
+
+.panel-body-left, .panel-body-right {
+  padding: 10px;
+}
+
+.panel-body-left {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 40px;
+  width: 80%;
+}
+
+.panel-body-right {
+  float: right;
+  overflow: hidden;
+  width: 20%;
+}
+
+.panel-body-right button, .panel-body-right a {
+  height: auto;
+  margin-bottom: 10px;
+  white-space: normal;
+}
+
+
+/* ########################################################################################## */
+
+
+
 .navbar-brand {
   position: relative;
   z-index: 1;
@@ -97,6 +148,12 @@ overflow: auto;
   width: 100%;
 }
 
+#messenger-conversation > .panel-body {
+overflow-x: hidden;
+overflow-y: auto;
+height: calc(100% - 43px);
+}
+
 #conversations > .panel-body, #messenger-conversation > .panel-body {
 
 }
@@ -146,6 +203,10 @@ margin-bottom: 15px !important;
 
 .message-actions a {
   color: #777;
+}
+
+.message-actions .dropdown-menu {
+  left: -350% !important;
 }
 
 
