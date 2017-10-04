@@ -31,6 +31,9 @@
 	
 			<!-- MOMENT JS -->
 			<script src="https://cdn.jsdelivr.net/npm/moment@2.18.1/moment.js"></script>
+	
+			<!-- JS TABS PLUGIN -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
 
 </head>
 <body>
@@ -102,7 +105,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
 																		<li>
-																			<a href="{{ route('profile') }}">Profile</a>
+																			<a href="{{ url('/profile/'. auth()->id() .'') }}">Profile</a>
 																		</li>
 																		<li>
 																			<a href="{{ route('account') }}">Account</a>

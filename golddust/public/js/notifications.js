@@ -16,17 +16,19 @@
 					 	 $("#note-notifications").html("!");
 						 
 						 // notification dropdown
-						 for(var i = 0; i < nc; i++) {
+						 //for(var i = 0; i < nc; i++) {
+						 for(var i = 0; i < data.length; i++) {
 							 /* disabling for now
 							 // FOR MESSAGES
 							 if (data[i]['type'] == "NewMessage") {
 								$("#notifications").append("<li><a href='messages'>"+ data[i]['data']['type'] +": </br> From: "+ data[i]['data']['author_name'] +"</a></li>");
 							 }
 							 */
-							 if (data[i]['type'] !== "NewMessage") { console.log(data[i]['data']); }
+							 //console.log(data[i]['type']);
+							 //if (data[i]['type'] !== "NewMessage") { console.log(data[i]['data']); }
 							 if (data[i]['data']['resource'] == 'project') {
 								 $("#notifications").append("<li><a href='#'>"+ data[i]['data']['resource'] +" "+ data[i]['data']['action'] +"<br/>"+ data[i]['data']['title'] +"</a></li>");
-								 if($("#business-dashboard-feed")) { appendProjectNote(data[i]['data']); }
+								 if($("#business-dashboard-feed").length) { appendProjectNote(data[i]['data']); }
 							 }
 						 }
 						 
@@ -54,6 +56,8 @@
 			function appendProjectNote(data) {
 				var r = "<div class='panel panel-default'><div class='panel-heading'>";
 				var a = new Date(data['created_at']['date']);
+				
+				//console.log(data);
 				
 				r += "" + ucfirst(data['action']) + " " + ucfirst(data['resource']) + "";
 				

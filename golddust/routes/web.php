@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-ROUTE::get('/profile', 'UserController@profile')->name('profile');
+Route::get('/profile/{profile}', 'UserController@profile')->name('profile');
 
 
 // FREELANCER DASHBOARD ROUTES
@@ -105,4 +105,8 @@ Route::get('/createTeam', function () {
 
 Route::get('/createTest', function () {
   return view('test.createTest');
+});
+
+Route::get('/company', function () {
+  return view('test.company');
 });

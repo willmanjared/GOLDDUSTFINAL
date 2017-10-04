@@ -53,6 +53,8 @@ class ProjectsController extends Controller
     {
         //
       
+      dd($request);
+      
       $a = Projects::create([
         'user_id' => auth()->id(),
         'title' => $request['title'],

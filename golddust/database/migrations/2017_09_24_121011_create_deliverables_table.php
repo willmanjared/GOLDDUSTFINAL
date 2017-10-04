@@ -15,6 +15,9 @@ class CreateDeliverablesTable extends Migration
     {
         Schema::create('deliverables', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('body');
+            $table->string('title');
+            $table->integer('order_of');
             $table->integer('projects_id');
             $table->integer('user_id')->nullable();
             $table->integer('teams_id')->nullable();
