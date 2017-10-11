@@ -94,7 +94,50 @@
 															</a>
 
 															<ul id="notifications" class="dropdown-menu" role="menu">
-																<li><a href="#">You Don't Have Any Notifications At This Time</a></li>
+																<li id="project-note">
+																	<div class="notification-icon">
+																		<i class="fa fa-folder-open fa-2x"></i>
+																	</div>
+																	<div class="notification-label">
+																		<h5>Projects</h5>
+																	</div>
+																	<div class="notification-count">
+																		<h5>0</h5>
+																	</div>
+																</li>
+																<li id="business-note">
+																	<div class="notification-icon">
+																		<i class="fa fa-briefcase fa-2x"></i>
+																	</div>
+																	<div class="notification-label">
+																		<h5>Business</h5>
+																	</div>
+																	<div class="notification-count">
+																		<h5>0</h5>
+																	</div>
+																</li>
+																<li id="message-note">
+																	<div class="notification-icon">
+																		<i class="fa fa-comment fa-2x"></i>
+																	</div>
+																	<div class="notification-label">
+																		<h5>Messages</h5>
+																	</div>
+																	<div class="notification-count">
+																		<h5>0</h5>
+																	</div>
+																</li>
+																<li id="task-note">
+																	<div class="notification-icon">
+																		<i class="fa fa-sticky-note fa-2x"></i>
+																	</div>
+																	<div class="notification-label">
+																		<h5>Tasks</h5>
+																	</div>
+																	<div class="notification-count">
+																		<h5>0</h5>
+																	</div>
+																</li>
 															</ul>
 														</li>
 											

@@ -19,6 +19,10 @@ label {
   color: #3FA4F7;
 }
 
+.panel-default { 
+    border-color: #dddddd !important;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -26,8 +30,9 @@ ul {
 }
 
 body > .container-fluid {
-  height: calc(100% - 51px) !important;
+  height: calc(100% - 51px);
   padding-top: 22px;
+  padding-bottom: 22px;
   overflow: auto !important;
 }
 
@@ -121,8 +126,64 @@ body > .container-fluid {
 }
 
 #input-body {
-  white-space: pre;
+  white-space: pre-line;
 }
+
+#notifications li {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+#notifications {
+  padding: 5px 5px 0;
+  width: 300px;
+}
+
+#notifications .notification-icon, #notifications .notification-label, #notifications .notification-count {
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+#notifications .notification-icon {
+  text-align: center;
+  width: 19%;
+}
+
+#notifications .notification-icon i {
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#notifications .notification-label {
+  width: 60%;
+}
+
+#notifications .notification-label h5, #notifications .notification-count h5 {
+  text-align: center;
+    font-size: 1.5em;
+  margin: 0;
+}
+
+#notifications .notification-count {
+  text-align: center;
+  width: 18%;
+}
+
+
+.project-attr-list {}
+
+.project-attr-list > li > label, .project-attr-list > li > p {
+  display: inline-block;
+}
+
+.project-attr-list > li > label, .project-attr-list > li > p:not(:last-child) {
+  padding-right: 8px;
+}
+
+
 
 
 /* ########################################################################################## */

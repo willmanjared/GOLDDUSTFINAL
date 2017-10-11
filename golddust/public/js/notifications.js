@@ -5,18 +5,20 @@
 				 if(data && data.length > 0) {
 
 					 // messages badge
-					 $("#note-messages").html(count_notifications(data, "type", "AppNotificationsNewMessage"));
+					 $("#note-messages, #message-note .notification-count h5").html(count_notifications(data, "type", "AppNotificationsNewMessage"));
+					 $("#business-note .notification-count h5").html(count_notifications(data,"type","AppNotificationsNewProject"));
 					 
 					 var nc = data.length - count_notifications(data, "type", "AppNotificationsNewMessage");
 					 
 					 if (nc > 0) {
 						 
 						 // notification badge
-						 $("#notifications").html(" ");
+						 //$("#notifications").html(" ");
 					 	 $("#note-notifications").html("!");
 						 
 						 // notification dropdown
 						 //for(var i = 0; i < nc; i++) {
+						 
 						 for(var i = 0; i < data.length; i++) {
 							 /* disabling for now
 							 // FOR MESSAGES
@@ -26,10 +28,12 @@
 							 */
 							 //console.log(data[i]['type']);
 							 //if (data[i]['type'] !== "NewMessage") { console.log(data[i]['data']); }
+						 
 							 if (data[i]['data']['resource'] == 'project') {
-								 $("#notifications").append("<li><a href='#'>"+ data[i]['data']['resource'] +" "+ data[i]['data']['action'] +"<br/>"+ data[i]['data']['title'] +"</a></li>");
+								 //$("#notifications").append("<li><a href='#'>"+ data[i]['data']['resource'] +" "+ data[i]['data']['action'] +"<br/>"+ data[i]['data']['title'] +"</a></li>");
 								 if($("#business-dashboard-feed").length) { appendProjectNote(data[i]['data']); }
 							 }
+							 
 						 }
 						 
 					 }
@@ -91,7 +95,7 @@
 				r += "</div>";
 				
 				$("#business-dashboard-feed").append(r);
-				console.log("something");
+				//console.log("something");
 				
 			}
 

@@ -38,9 +38,24 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Projects $projects = null)
     {
-        //
+      if (!isset($projects)) {
+        $projects = [
+          'user_id' => auth()->id(),
+          'status' => 'inactive',
+          'title' => 'Add A Title Here...',
+          'body' => 'Add A Description Here...',
+          'project_length' => '0',
+          'project_length_unit' => 'Time Unit',
+          'payment_period' => 'Payment Type',
+          'skill_level' => 'Difficulty',
+          'test_id' => 0
+        ];
+      }
+      
+      
+      return view('test.createProject', compact('projects'));
     }
 
     /**
@@ -129,7 +144,23 @@ class ProjectsController extends Controller
      */
     public function edit(Projects $projects)
     {
-        //
+      
+      dd("CREATE A VIEW FOR THIS METHOD");
+      
+      
+      $proposals = Proposals::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      $deliverables = Deliverables::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      $hireds = Hired::where([
+        'projects_id' => $projects->id
+      ])->get();
+      
+      return view('business.edit_project', compact('projects', 'proposals', 'deliverables', 'hireds'));
     }
 
     /**

@@ -41,16 +41,17 @@
                             </div>
                             <div class="project-feed-stats">
                               <ul>
-                                <li><label>Status: </label>{{ $data["projects"][$i]['status'] }}</li>
+                                <li><label>Status: </label>{{ ucfirst($data["projects"][$i]['status']) }}</li>
                                 <li><label>Number of Proposals: </label>{{ count($data["projects"][$i]->proposal) }}</li>
-                                <li><label>Project Length: </label>{{ $data["projects"][$i]['project_length'] }} {{ $data["projects"][$i]['project_length_unit'] }}</li>
-                                <li><label>Deliverable Type: </label>{{ $data["projects"][$i]['payment_period'] }}</li>
+                                <li><label>Project Length: </label>{{ $data["projects"][$i]['project_length'] }} {{ ucfirst($data["projects"][$i]['project_length_unit']) }}</li>
+                                <li><label>Deliverable Type: </label>{{ ucfirst($data["projects"][$i]['payment_period']) }}</li>
                                 <li><label>Has Test: </label>@if($data["projects"][$i]['test_id'] == 0)
-                                {{ "no" }}
+                                {{ "No" }}
                                   @else
-                                  {{ "yes" }}
+                                  {{ "Yes" }}
                                   @endif
                                 </li> <!-- THIS IS BUT ONLY A TEST ID -->
+                                <li><label>Skill Level: </label>{{ ucfirst($data['projects'][$i]['skill_level']) }}</li>
                               </ul>
                             </div>
                           </div>

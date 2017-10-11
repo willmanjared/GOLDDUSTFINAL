@@ -19,52 +19,8 @@
                   
                 </div>
             </div>
-        </div>
-      
-      <div class="col-md-2">
-        
-        <div class="panel panel-default">
-          <div class="panel-body">
-            
-            @if(isset($proposals) && !count($proposals) > 0)
-            <button class="btn btn-primary form-control" onclick="$('#lightbox-container').fadeIn();">
-              Apply
-            </button>
-            @else
-              <button class="btn btn-default form-control" onclick="return false;">
-                Applied Already!
-              </button>
-            @endif
-          </div>
-        </div>
-        
-        
-            <div class="panel panel-default">
-                <div class="panel-body">
-                  
-                  <div>
-                              <ul>
-                                <li><label>Status: </label>{{ $projects['status'] }}</li>
-                                <li><label>Number of Proposals: </label>{{ count($projects->proposal) }}</li>
-                                <li><label>Project Length: </label>{{ $projects['project_length'] }} {{ $projects['project_length_unit'] }}</li>
-                                <li><label>Deliverable Type: </label>{{ $projects['payment_period'] }}</li>
-                                <li><label>Has Test: </label>@if($projects['test_id'] == 0)
-                                {{ "no" }}
-                                  @else
-                                  {{ "yes" }}
-                                  @endif
-                                </li> <!-- THIS IS BUT ONLY A TEST ID -->
-                              </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-      
-  </div>
-  
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-      <div class="panel panel-default">
+          
+          <div class="panel panel-default">
         <div class="panel-heading">
           Proposal
         </div>
@@ -116,7 +72,48 @@
           @endif
         </div>
       </div>
+        </div>
+      
+      <div class="col-md-2">
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+            
+            @if(isset($proposals) && !count($proposals) > 0)
+            <button class="btn btn-primary form-control" onclick="$('#lightbox-container').fadeIn();">
+              Apply
+            </button>
+            @else
+              <button class="btn btn-default form-control" onclick="return false;">
+                Applied Already!
+              </button>
+            @endif
+          </div>
+        </div>
+        
+        
+            <div class="panel panel-default">
+                <div class="panel-body">
+                  
+                  <div>
+                              <ul>
+                                <li><label>Status: </label>{{ ucfirst($projects['status']) }}</li>
+                                <li><label>Number of Proposals: </label>{{ count($projects->proposal) }}</li>
+                                <li><label>Project Length: </label>{{ $projects['project_length'] }} {{ ucfirst($projects['project_length_unit']) }}</li>
+                                <li><label>Deliverable Type: </label>{{ ucfirst($projects['payment_period']) }}</li>
+                                <li><label>Has Test: </label>@if($projects['test_id'] == 0)
+                                {{ "No" }}
+                                  @else
+                                  {{ "Yes" }}
+                                  @endif
+                                </li> <!-- THIS IS BUT ONLY A TEST ID -->
+                                <li><label>Skill Level:</label>{{ ucfirst($projects['skill_level']) }}</li>
+                              </ul>
+                </div>
+            </div>
+        </div>
     </div>
+      
   </div>
 
   @include('forms.proposal_form')

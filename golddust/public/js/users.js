@@ -1,7 +1,8 @@
 $( document ).ready(function () {
-  $(".panel-dropdown > .panel-heading").click(function (ev) {
+  $("body .panel-dropdown > .panel-heading").click(function (ev) {
     //console.log("panel clicked");
     $(this).parent().children(".panel-body").toggle("scale");
+    console.log("panel clicked");
   });
   $(".nav-tabs > li").click(function (ev) {
     var a = $(ev.target).closest("ul");

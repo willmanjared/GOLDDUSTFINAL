@@ -95,9 +95,7 @@ Route::get('/fire', function () {
 
 // TEST FORM ROUTES
 
-Route::get('/createProject', function () {
-  return view('test.createProject');
-});
+Route::get('/createProject', 'ProjectsController@create');
 
 Route::get('/createTeam', function () {
   return view('test.createTeam');

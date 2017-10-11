@@ -94,17 +94,18 @@
                 <div class="panel-body">
                   
                   <div>
-                              <ul>
-                                <li><label>Status: </label>{{ $projects['status'] }}</li>
+                              <ul class="project-attr-list">
+                                <li><label>Status: </label>{{ ucfirst($projects['status']) }}</li>
                                 <li><label>Number of Proposals: </label>{{ count($projects->proposal) }}</li>
-                                <li><label>Project Length: </label>{{ $projects['project_length'] }} {{ $projects['project_length_unit'] }}</li>
-                                <li><label>Deliverable Type: </label>{{ $projects['payment_period'] }}</li>
+                                <li><label>Project Length: </label>{{ $projects['project_length'] }} {{ ucfirst($projects['project_length_unit']) }}</li>
+                                <li><label>Deliverable Type: </label>{{ ucfirst($projects['payment_period']) }}</li>
                                 <li><label>Has Test: </label>@if($projects['test_id'] == 0)
-                                {{ "no" }}
+                                {{ "No" }}
                                   @else
-                                  {{ "yes" }}
+                                  {{ "Yes" }}
                                   @endif
                                 </li> <!-- THIS IS BUT ONLY A TEST ID -->
+                                <li><label>Skill Level: </label>{{ ucfirst($projects['skill_level']) }}</li>
                               </ul>
                 </div>
             </div>
