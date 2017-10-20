@@ -6,19 +6,39 @@
 <link rel="stylesheet" href="{{ asset('css/viewForm.css') }}" />
 <script src="{{ asset('js/viewForm.js') }}"></script>
 
+<div style="display: none;">
+  <form>
+    
+    {{ csrf_field() }}
+    <input type="hidden" class="form-control" name="title" />
+    <input type="hidden" class="form-control" name="body" />
+    <input type="hidden" class="form-control" name="status" />
+    <input type="hidden" class="form-control" name="project_length" />
+    <input type="hidden" class="form-control" name="project_length_unit" />
+    <input type="hidden" class="form-control" name="payment_period" />
+    <input type="hidden" class="form-control" name="skill_level" />
+    <input type="hidden" class="form-control" name="test_id" />
+    
+  </form>
+</div>
+
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $projects['title'] }}</div>
+                <div class="panel-heading">
+                  <p contenteditable="true">
+                    {{ $projects['title'] }}
+                  </p>
+              </div>
 
                 <div class="panel-body">
                   
                   <h3>
                     Description
                   </h3>
-                  <p>
+                  <p contenteditable="true">
                     {{ $projects['body'] }}
                   </p>
                   
@@ -106,7 +126,7 @@
                                 <li><label>Project Length: </label><p class="attr-list-length">{{ $projects['project_length'] }}</p> <p class="attr-list-length_unit">{{ ucfirst($projects['project_length_unit']) }}</p></li>
                                 <li><label>Deliverable Type: </label><p class="attr-list-payment_period">{{ ucfirst($projects['payment_period']) }}</p></li>
                                 <li><label>Has Test: </label>
-                                  <p class="attr-list-test_id">
+                                  <p class="attr-list-test_id btn-p">
                                     @if($projects['test_id'] == 0)
                                       {{ "No" }}
                                     @else
@@ -128,7 +148,14 @@
 </div>
 
 <script>
-  
+$(function () {
+  $(".attr-list-test_id").on("mouseover", function () {
+    $(this).addClass("btn-primary-p");
+  });
+  $(".attr-list-test_id").on("mouseleave", function () {
+    $(this).removeClass("btn-primary-p");
+  });
+});  
 </script>
 
 

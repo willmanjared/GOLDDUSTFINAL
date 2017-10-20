@@ -96,7 +96,7 @@
 															<ul id="notifications" class="dropdown-menu" role="menu">
 																<li id="project-note">
 																	<div class="notification-icon">
-																		<i class="fa fa-folder-open fa-2x"></i>
+																		<i class="fa fa-folder-open fa-lg"></i>
 																	</div>
 																	<div class="notification-label">
 																		<h5>Projects</h5>
@@ -107,7 +107,7 @@
 																</li>
 																<li id="business-note">
 																	<div class="notification-icon">
-																		<i class="fa fa-briefcase fa-2x"></i>
+																		<i class="fa fa-briefcase fa-lg"></i>
 																	</div>
 																	<div class="notification-label">
 																		<h5>Business</h5>
@@ -118,7 +118,7 @@
 																</li>
 																<li id="message-note">
 																	<div class="notification-icon">
-																		<i class="fa fa-comment fa-2x"></i>
+																		<i class="fa fa-comment fa-lg"></i>
 																	</div>
 																	<div class="notification-label">
 																		<h5>Messages</h5>
@@ -129,7 +129,7 @@
 																</li>
 																<li id="task-note">
 																	<div class="notification-icon">
-																		<i class="fa fa-sticky-note fa-2x"></i>
+																		<i class="fa fa-sticky-note fa-lg"></i>
 																	</div>
 																	<div class="notification-label">
 																		<h5>Tasks</h5>

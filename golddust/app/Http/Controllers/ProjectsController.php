@@ -40,6 +40,7 @@ class ProjectsController extends Controller
      */
     public function create(Projects $projects = null)
     {
+      
       if (!isset($projects)) {
         $projects = [
           'user_id' => auth()->id(),
@@ -54,8 +55,8 @@ class ProjectsController extends Controller
         ];
       }
       
-      
       return view('test.createProject', compact('projects'));
+      
     }
 
     /**
