@@ -65,9 +65,6 @@
         </style>
     </head>
     <body>
-      <h1>
-        hello world
-      </h1>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -82,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href="/index" style="text-decoration: none; color: #888;">Cam Site</a>
                 </div>
 
                 <div class="links">

@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/index', 'CamController@index');
+Route::get('/view', 'CamController@view');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

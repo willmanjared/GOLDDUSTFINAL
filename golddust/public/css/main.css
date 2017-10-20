@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.container-fluid {
+  height: calc(100% - 52px);
+  overflow: auto;
+  padding-top: 22px;
+  width: 100%;
+}
+
+.container-fluid > .row {
+  height: calc(100% - 22px) !important;
+}
+
+#app {
+  overflow: hidden !important;
+}
+
+#app .navbar {
+  margin-bottom: 0 !important;
+}
