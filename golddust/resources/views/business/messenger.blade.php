@@ -256,7 +256,7 @@
 			"reciever_id": $("#messenger-form input[name='reciever_id']").val(),
 			"message": $("#messenger-form input[name='message']").val()
 		};
-		$.post("//ec2-34-210-133-115.us-west-2.compute.amazonaws.com/messenger/send", ob, function(res){
+		$.post("//ec2-52-24-190-13.us-west-2.compute.amazonaws.com/messenger/send", ob, function(res){
         // Do something with the response `res`
         console.log(res);
         // Don't forget to hide the loading indicator!
