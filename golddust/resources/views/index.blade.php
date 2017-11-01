@@ -8,7 +8,7 @@
       <div class="navbar-header" style="height: 48px;">
         <img src="{{ asset('img/main_logo.png') }}" alt="LazerFire" style="height: 100%;">
       </div>
-      <div id="main-navigation">
+      <div id="main-navigation" class="col-sm-1">
         <ul>
           <li>Home</li>
           <li>About</li>
@@ -20,9 +20,9 @@
     </div>
   </nav>
 
-  <div class="row full-h shattered-bg" data-parallax="scroll">
-    <div class="col-md-12">
-
+  <div class="row full-h shattered-bg" data-parallax="scroll" data-image-src="{{ asset('img/shattered-island.gif') }}">
+    <div class="col-sm-10 col-sm-offset-1" style="  display: flex; justify-content: center;">
+      <h1 style="font-family: monospace; margin-top: 15%; text-shadow: 1px 1px 2px #b7d862;">We Develop Digital Products To </br>Innovate Your Digital Marketspace</h1>
     </div>
   </div>
 
@@ -72,17 +72,33 @@
 
   <div id="blog" class="row" style="background-color: #000; min-height: 400px;">
     <div class="col-sm-10 col-sm-offset-1">
-      <ul id="blog-tiles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <ul id="blog-tile-wrapper">
+        <li class="blog-tile">
+          <img class="blog-img">
+          <h3 class="blog-title">Blog Title</h3>
+          <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus ipsum, eleifend eget sem vitae, eleifend scelerisque dui. Nullam at erat non felis vulputate pulvinar.</p>
+        </li>
+        <li class="blog-tile">
+          <img class="blog-img">
+          <h3 class="blog-title">Another Title</h3>
+          <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus ipsum, eleifend eget sem vitae, eleifend scelerisque dui. Nullam at erat non felis vulputate pulvinar.</p>
+        </li>
+        <li class="blog-tile">
+          <img class="blog-img">
+          <h3 class="blog-title">Interesting Title</h3>
+          <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus ipsum, eleifend eget sem vitae, eleifend scelerisque dui. Nullam at erat non felis vulputate pulvinar.</p>
+        </li>
+        <li class="blog-tile">
+          <img class="blog-img">
+          <h3 class="blog-title">Readable Title</h3>
+          <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus ipsum, eleifend eget sem vitae, eleifend scelerisque dui. Nullam at erat non felis vulputate pulvinar.</p>
+        </li>
       </ul>
     </div>
   </div>
 
-  <div class="row">
-    <div class="main-divider"></div>
+  <div class="row" style="box-shadow: 0 10px 10px #000;">
+    <div class="main-divider" style="box-shadow: 0 10px 10px #000;"></div>
   </div>
 
   <div class="row" id="footer" style="min-height: 100px;">

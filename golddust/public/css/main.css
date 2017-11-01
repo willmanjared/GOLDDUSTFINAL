@@ -34,6 +34,7 @@ input, textarea {
   border-radius: 0 !important;
   color: #7CA70D !important;
   font-family: monospace !important;
+  transition: all 0.6s;
 }
 
 textarea {
@@ -41,16 +42,19 @@ textarea {
 }
 
 .main-button {
-  background-color: #17202A !important;
-  border: 1px solid #808B96 !important;
-  border-radius: 0 !important;
-  color: #7CA70D !important;
+  background-color: #17202A;
+  border: 1px solid #808B96;
+  border-radius: 0;
+  color: #7CA70D;
   font-family: monospace;
   transition: all 0.6s;
 }
 
 .main-button:hover {
+  background-color: #5E7E0B;
+  border-color: #5E7E0B;
   box-shadow: 0 0 3px #fff;
+  color: #fff;
 }
 
 .main-green {
@@ -68,6 +72,9 @@ textarea {
 
 .shattered-bg {
   background-image: url('/img/shattered-island.gif');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
@@ -78,18 +85,80 @@ textarea {
 }
 
 #main-navigation {
+  height: 100%;
   position: absolute;
   left: 90%;
 }
 
+#main-navigation ul {
+  border-left: 1px solid #b7d862;
+  margin-left: 5px;
+  padding: 100px 10px 0;
+}
+
 #main-navigation ul:first-child {
-  margin-top: 100px;
-  margin-right: 40px;
+
 }
 
 #main-navigation  ul > li {
   font-family: monospace;
   margin-bottom: 50px;
+}
+
+#blog-tile-wrapper {
+  padding: 10px;
+  width: 100%;
+}
+
+#blog-tile-wrapper > li {
+  display: inline-block;
+  overflow: hidden;
+  width: 49%;
+}
+
+.blog-tile {
+  margin-top: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.blog-tile:hover {
+  cursor: pointer;
+}
+
+.blog-tile > .blog-img {
+  background-color: #17202A;
+  border: 1px solid #808B96;
+  height: 120px;
+  opacity: 0.6;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: all 0.8s;
+  width: 144px;
+}
+
+.blog-tile:hover > .blog-img {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.blog-tile > .blog-title {
+  color: #b7d862;
+  font-family: monospace;
+  position: relative;
+  text-indent: 160px;
+  z-index: 1;
+}
+
+.blog-tile > .blog-desc {
+  font-family: monospace;
+  margin-top: 90px;
+  position: relative;
+  text-indent: 40px;
+  z-index: 1;
 }
 
 .main-divider {
@@ -98,7 +167,7 @@ textarea {
 }
 
 #footer {
-  background-color: #000;
+  background-color:  #272830;
 }
 
 
