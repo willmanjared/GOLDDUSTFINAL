@@ -1,0 +1,119 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+body > .container-fluid, body > .container {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6, li, a {
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  color: #b7d862 !important;
+  font-family: monospace !important;
+}
+
+input, textarea {
+  background-color: #17202A !important;
+  border: 1px solid #808B96 !important;
+  border-radius: 0 !important;
+  color: #7CA70D !important;
+  font-family: monospace !important;
+}
+
+textarea {
+  resize: none;
+}
+
+.main-button {
+  background-color: #17202A !important;
+  border: 1px solid #808B96 !important;
+  border-radius: 0 !important;
+  color: #7CA70D !important;
+  font-family: monospace;
+  transition: all 0.6s;
+}
+
+.main-button:hover {
+  box-shadow: 0 0 3px #fff;
+}
+
+.main-green {
+  color: #b7d862;
+}
+
+.full-h {
+  height: 100% !important;
+}
+
+.transparent {
+  background-color: transparent;
+  border: 0;
+}
+
+.shattered-bg {
+  background-image: url('/img/shattered-island.gif');
+}
+
+
+.full-bg-img {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+#main-navigation {
+  position: absolute;
+  left: 90%;
+}
+
+#main-navigation ul:first-child {
+  margin-top: 100px;
+  margin-right: 40px;
+}
+
+#main-navigation  ul > li {
+  font-family: monospace;
+  margin-bottom: 50px;
+}
+
+.main-divider {
+  background-color: #b7d862;
+  height: 48px;
+}
+
+#footer {
+  background-color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
