@@ -47,3 +47,12 @@ redis.on('disconnect', function () {
 http.listen(3000, function(){
     console.log('Listening on Port 3000');
 });
+
+// VIDEO SOCKET STUFF
+io.on('connection', function (socket) {
+  console.log("connected with socket");
+  socket.on('stream', function (image) {
+    console.log('socket streaming');
+      socket.broadcast.emit('stream', image);
+  });
+});

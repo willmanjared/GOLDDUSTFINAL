@@ -109,7 +109,7 @@
 				@if(count($data) > 0)
 			    <input id="reciever_id" type="hidden" name="reciever_id" value="{{ $data[0]['user']['id'] }}" />
 				@else
-					<input id="reciever_id" type="hidden" name="reciever_id" value="1" />
+					<input id="reciever_id" type="hidden" name="reciever_id" value="2" />
 				@endif
 
 			    <div class="input-group">
@@ -257,7 +257,7 @@
 			"reciever_id": $("#messenger-form input[name='reciever_id']").val(),
 			"message": $("#messenger-form input[name='message']").val()
 		};
-		$.post("//ec2-52-24-190-13.us-west-2.compute.amazonaws.com/messenger/send", ob, function(res){
+		$.post("//{{ Request::getHost() }}/messenger/send", ob, function(res){
         // Do something with the response `res`
         console.log(res);
         // Don't forget to hide the loading indicator!

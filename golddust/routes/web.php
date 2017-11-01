@@ -108,3 +108,12 @@ Route::get('/createTest', function () {
 Route::get('/company', function () {
   return view('test.company');
 });
+
+
+
+
+// VIDEO TESTING ROUTES
+Route::get('/video/index', 'VideoController@index');
+Route::get('/video/view/', 'VideoController@view');
+//Route::get('/video/view/{video}', 'VideoController@view');
+Route::get('/video/stream', 'VideoController@stream');

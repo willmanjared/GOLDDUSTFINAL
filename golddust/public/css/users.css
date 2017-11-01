@@ -95,6 +95,10 @@ body > .container-fluid {
   margin-bottom: 0;
 }
 
+.panel-heading > p {
+  display: inline-block;
+}
+
 .nav-tabs {
   border: none;
   margin-bottom: 10px;

@@ -22,13 +22,13 @@
 
     <!-- Users Main CSS -->
     <link href="{{ asset('css/users.css') }}" rel="stylesheet">
-	
+
 	    <!-- JQUERY -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-	
+
 			<!-- Socket io -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-	
+
 			<!-- MOMENT JS -->
 			<script src="https://cdn.jsdelivr.net/npm/moment@2.18.1/moment.js"></script>
 
@@ -64,16 +64,17 @@
 
 
 		    <!-- Center Of Navbar -->
-		    <div id="center-nav-wrapper">			
+		    <div id="center-nav-wrapper">
 						<ul class="nav navbar-nav">
 								<li><a href="{{ url('/f/dashboard') }}">Dashboard</a></li>
 								<li><a href="{{ url('/f/messenger') }}">Messages  <span id="note-messages" class="badge"></span></a></li>
 								<li><a href="{{ url('/f/proposals') }}">Proposals</a></li>
 								<li><a href="{{ url('/f/tasks') }}">Tasks</a></li>
 								<li><a href="{{ url('/f/stats') }}">Stats</a></li>
+								<li><a href="{{ url('/video/index') }}">Video</a></li>
 						</ul>
 		     </div>
-									
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -82,7 +83,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-											
+
 														<!-- Notifications Feed Widget Right Side Of Navbar -->
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -137,7 +138,7 @@
 																</li>
 															</ul>
 														</li>
-											
+
                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -161,7 +162,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-																		
+
                                 </ul>
                             </li>
                         @endguest
@@ -185,10 +186,10 @@
 
 		<!-- NOTIFICATIONS JS -->
 		<script src="{{ asset('js/notifications.js') }}"></script>
-	
+
 		<!-- MESSAGES JS 	-->
 		<script src="{{ asset('js/messages.js') }}"></script>
-	
+
 	<script>
 		var socket = io('http://{{ Request::getHost() }}:3000');
 
@@ -198,7 +199,7 @@
 			//console.log(res);
 			//console.log($("input[name='reciever_id']").val());
 			//console.log(res['reciever_id']);
-			
+
 			if ($("input[name='reciever_id']").val() == res['reciever_id']) {
 				console.log("SOCKET APPEND NEW MESSAGE");
 				//res['user_id'] = res["reciever_id"];
@@ -208,8 +209,8 @@
 			}
 		});
 	</script>
-		
 
-		
+
+
 </body>
 </html>
