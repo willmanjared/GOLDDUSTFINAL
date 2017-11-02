@@ -7,6 +7,7 @@ html, body {
 }
 
 body > .container-fluid, body > .container {
+  background-color: #000;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -37,8 +38,28 @@ input, textarea {
   transition: all 0.6s;
 }
 
+input.form-control, textarea.form-control {
+  padding: 24px 12px;
+}
+
 textarea {
   resize: none;
+}
+
+[class^='logo-typed-'] {
+  color: #b7d862;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: monospace !important;
+  border-bottom: 1px solid #b7d862 !important;
+  margin-bottom: 25px !important;
+  padding-bottom: 25px !important;
+}
+
+.section-para {
+  font-family: monospace;
 }
 
 .main-button {
@@ -63,6 +84,7 @@ textarea {
 
 .full-h {
   height: 100% !important;
+  max-height: 800px !important;
 }
 
 .transparent {
@@ -70,11 +92,17 @@ textarea {
   border: 0;
 }
 
+/*
 .shattered-bg {
   background-image: url('/img/shattered-island.gif');
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center;
+}
+*/
+
+.shattered-bg {
+  background-color: #000;
 }
 
 
@@ -93,7 +121,7 @@ textarea {
 #main-navigation ul {
   border-left: 1px solid #b7d862;
   margin-left: 5px;
-  padding: 100px 10px 0;
+  padding-top: 100px;
 }
 
 #main-navigation ul:first-child {
@@ -101,8 +129,36 @@ textarea {
 }
 
 #main-navigation  ul > li {
+  border-bottom: 1px solid transparent;
   font-family: monospace;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  padding: 10px;
+  transition: all 0.6s;
+}
+
+#main-navigation  ul > li:hover {
+  border-bottom: 1px solid #b7d862;
+  cursor: pointer;
+}
+
+.main-nav-active {
+  border-bottom: 1px solid #b7d862 !important;
+  transition: all 0.6s;
+}
+
+.dev-step {
+  /*border: 1px solid #b7d862;*/
+  min-height: 100px;
+  text-align: center;
+}
+
+.dev-icon {
+  color: #b7d862;
+  font-size: 12em;
+}
+
+.dev-title {
+  color: #b7d862;
 }
 
 #blog-tile-wrapper {
@@ -163,11 +219,29 @@ textarea {
 
 .main-divider {
   background-color: #b7d862;
-  height: 48px;
+  height: 24px;
 }
 
 #footer {
-  background-color:  #272830;
+
+  margin-top: 50px;
+}
+
+#social {
+  height: 100px;
+}
+
+.social-icon {
+  display: inline-block;
+}
+
+.social-icon > i {
+  color: #b7d862;
+  text-shadow: 0 3px 3px #000;
+}
+
+.social-icon {
+  margin-right: 25px;
 }
 
 
