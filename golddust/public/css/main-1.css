@@ -1,0 +1,262 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+body > .container-fluid, body > .container {
+  background-color: #000;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6, li, a {
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  color: #b7d862 !important;
+  font-family: monospace !important;
+}
+
+input, textarea {
+  background-color: #17202A !important;
+  border: 1px solid #808B96 !important;
+  border-radius: 0 !important;
+  color: #7CA70D !important;
+  font-family: monospace !important;
+  transition: all 0.6s;
+}
+
+input.form-control, textarea.form-control {
+  padding: 24px 12px;
+}
+
+textarea {
+  resize: none;
+}
+
+[class^='logo-typed-'] {
+  color: #b7d862;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: monospace !important;
+  border-bottom: 1px solid #b7d862 !important;
+  margin-bottom: 25px !important;
+  padding-bottom: 25px !important;
+}
+
+.section-para {
+  font-family: monospace;
+}
+
+.main-button {
+  background-color: #17202A;
+  border: 1px solid #808B96;
+  border-radius: 0;
+  color: #7CA70D;
+  font-family: monospace;
+  transition: all 0.6s;
+}
+
+.main-button:hover {
+  background-color: #5E7E0B;
+  border-color: #5E7E0B;
+  box-shadow: 0 0 3px #fff;
+  color: #fff;
+}
+
+.main-green {
+  color: #b7d862;
+}
+
+.full-h {
+  height: 100% !important;
+  max-height: 800px !important;
+}
+
+.transparent {
+  background-color: transparent;
+  border: 0;
+}
+
+/*
+.shattered-bg {
+  background-image: url('/img/shattered-island.gif');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+*/
+
+.shattered-bg {
+  background-color: #000;
+}
+
+
+.full-bg-img {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+#main-navigation {
+  height: 100%;
+  position: absolute;
+  left: 90%;
+}
+
+#main-navigation ul {
+  border-left: 1px solid #b7d862;
+  margin-left: 5px;
+  padding-top: 100px;
+}
+
+#main-navigation ul:first-child {
+
+}
+
+#main-navigation  ul > li {
+  border-bottom: 1px solid transparent;
+  font-family: monospace;
+  margin-bottom: 30px;
+  padding: 10px;
+  transition: all 0.6s;
+}
+
+#main-navigation  ul > li:hover {
+  border-bottom: 1px solid #b7d862;
+  cursor: pointer;
+}
+
+.main-nav-active {
+  border-bottom: 1px solid #b7d862 !important;
+  transition: all 0.6s;
+}
+
+.dev-step {
+  /*border: 1px solid #b7d862;*/
+  min-height: 100px;
+  text-align: center;
+}
+
+.dev-icon {
+  color: #b7d862;
+  font-size: 12em;
+}
+
+.dev-title {
+  color: #b7d862;
+}
+
+#blog-tile-wrapper {
+  padding: 10px;
+  width: 100%;
+}
+
+#blog-tile-wrapper > li {
+  display: inline-block;
+  overflow: hidden;
+  width: 49%;
+}
+
+.blog-tile {
+  margin-top: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.blog-tile:hover {
+  cursor: pointer;
+}
+
+.blog-tile > .blog-img {
+  background-color: #17202A;
+  border: 1px solid #808B96;
+  height: 120px;
+  opacity: 0.6;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: all 0.8s;
+  width: 144px;
+}
+
+.blog-tile:hover > .blog-img {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.blog-tile > .blog-title {
+  color: #b7d862;
+  font-family: monospace;
+  position: relative;
+  text-indent: 160px;
+  z-index: 1;
+}
+
+.blog-tile > .blog-desc {
+  font-family: monospace;
+  margin-top: 90px;
+  position: relative;
+  text-indent: 40px;
+  z-index: 1;
+}
+
+.main-divider {
+  background-color: #b7d862;
+  height: 24px;
+}
+
+#footer {
+
+  margin-top: 50px;
+}
+
+#social {
+  height: 100px;
+}
+
+.social-icon {
+  display: inline-block;
+}
+
+.social-icon > i {
+  color: #b7d862;
+  text-shadow: 0 3px 3px #000;
+}
+
+.social-icon {
+  margin-right: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
