@@ -1,3 +1,5 @@
+/*@import "compass/css3";*/
+
 html, body {
   height: 100%;
   margin: 0;
@@ -13,21 +15,97 @@ body > .container-fluid, body > .container {
   width: 100%;
 }
 
-.svg-dot-bg {
-  background-image: url('/svg/dots.svg');
-  background-repeat: repeat-y;
-  background-size: contain;
+#lazerfire, #contact, #about, #services {
+  display: none;
+}
+
+.shower {
+  display: block !important;
 }
 
 .full-h {
   height: 100% !important;
 }
 
-.main-button {
-  background-color: #17202A;
-  border: 1px solid #00ff00;
-  border-radius: 0;
-  color: #00ff00;
-  font-family: monospace;
-  transition: all 0.6s;
+#transition-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
 }
+
+#transition-container > canvas {
+  background-color: #17202A;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-t a {
+  color: #fff !important;
+}
+
+.process-container [class^='col-'] {
+  min-height: 400px;
+}
+
+.process-container >.col-md-4 {
+  background-color: #424949;
+}
+
+.process-container > .col-md-8 {
+  background-color: #616A6B;
+}
+
+
+/*
+  .glitch{
+    color:white;
+    font-size:100px;
+    position:relative;
+    width:400px;
+    margin:0 auto;
+  }
+  @keyframes noise-anim{
+    $steps:20;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+  .glitch:after{
+    content:attr(data-text);
+    position:absolute;
+    left:2px;
+    text-shadow:-1px 0 red;
+    top:0;
+    color:white;
+    background:black;
+    overflow:hidden;
+    clip:rect(0,900px,0,0); 
+    animation:noise-anim 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes noise-anim-2{
+    $steps:20;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+  .glitch:before{
+    content:attr(data-text);
+    position:absolute;
+    left:-2px;
+    text-shadow:1px 0 blue; 
+    top:0;
+    color:white;
+    background:black;
+    overflow:hidden;
+    clip:rect(0,900px,0,0); 
+    animation:noise-anim-2 3s infinite linear alternate-reverse;
+  }
+*/
