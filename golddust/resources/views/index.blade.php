@@ -13,14 +13,14 @@
       </div>
       <ul class="nav navbar-nav navbar-right nav-t">
         <li><a href="#">Services</a></li>
-        <li><a href="#">About</a></li>
+        <!-- <li><a href="#">About</a></li> -->
         <li><a href="#">Contact</a></li>
         <li><a href="#">Blog</a></li>
       </ul>
     </div>
   </nav>
 
-<div id="lazerfire" class="container-fluid shower" style="position: relative;">
+<div id="lazerfire" class="container-fluid" style="position: relative;">
   
 
   
@@ -84,58 +84,58 @@
     </div>
   </div>
 
-  <div class="row footer-divider" style="height: 40%; background-color: #2ab27b;">
-    <div class="col-md-12">
-      
-    </div>
-  </div>
-
-  <footer class="row" style="min-height: 250px;">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-  </footer>
+  @include('inc.footer')
   
 </div>
 
-<div id="services" class="container-fluid" style="position: relative; display: none;">
-  
-  <div class="row full-h" style="background-color: #AEB6BF;">
-     <div class="col-md-12 full-h">
-       
+<div id="services" class="container-fluid shower" style="position: relative; display: none;">
+  <div class="clouds"></div>
+  <div class="row" style="height: 75%;">
+    <div class="col-md-10 col-md-offset-1 full-h">
+      
     </div>
   </div>
   
-    <div class="row footer-divider" style="height: 40%; background-color: #2ab27b;">
-      <div class="col-md-12">
-      
-      </div>
+  <div class="row" style="min-height: 100%;">
+    <div class="col-md-10 col-md-offset-1" style="min-height: 100%; padding: 50px 0 50px 10px;">
+       <div class="grid">
+     
+         <div class="grid-sizer"></div>
+         <div class="gutter-sizer"></div>
+         <div class="grid-item grid-item--width5">
+          <h1>
+            WE ARE VERSITILE
+           </h1>
+         </div>
+          <div class="grid-item"></div>
+         <div class="grid-item"></div>
+         <div class="grid-item"></div>
+         <div class="grid-item"></div>
+         <div class="grid-item grid-item--width5">
+          <h1>
+            LOOKING FOR SOMETHING SPECIFIC
+           </h1>
+         </div>
+         <div class="grid-item grid-item--width2"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+         <div class="grid-item grid-item--width5">
+           <h1>
+              WAIT, DID YOU SAY AUTOMATION
+           </h1>
+         
+         </div>
+          <div class="grid-item grid-item--width3"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item grid-item--width2"></div>
+          <div class="grid-item"></div>
+        </div>
     </div>
-
+  </div>
   
-    <footer class="row" style="min-height: 250px;">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-  </footer>
+  @include('inc.footer')
   
 </div>
 
@@ -147,59 +147,19 @@
     </div>
   </div>
   
-    <div class="row footer-divider" style="height: 40%; background-color: #2ab27b;">
-      <div class="col-md-12">
-      
-      </div>
-    </div>
-
-  
-    <footer class="row" style="min-height: 250px;">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-  </footer>
+   @iclude('inc.footer')
   
 </div>
 
 <div id="contact" class="container-fluid" style="position: relative; display: none;">
   
-  <div class="row full-h" style="background-color: #17202A;">
+  <div class="row full-h" style="background-color: #000;">
      <div class="col-md-12 full-h">
        
     </div>
   </div>
   
-    <div class="row footer-divider" style="height: 40%; background-color: #2ab27b;">
-      <div class="col-md-12">
-      
-      </div>
-    </div>
-
-  
-    <footer class="row" style="min-height: 250px;">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-  </footer>
+    @include('inc.footer')
   
 </div>
 
@@ -211,74 +171,88 @@
     </div>
   </div>
   
-    <div class="row footer-divider" style="height: 40%; background-color: #2ab27b;">
-      <div class="col-md-12">
-      
-      </div>
-    </div>
-
-  
-    <footer class="row" style="min-height: 250px;">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-3">
-      
-    </div>
-  </footer>
+  @include('inc.footer')
   
 </div>
 
 
 
 <script>
-var tcanvas = $("#transition-canvas");
-var tctx = tcanvas[0].getContext('2d');
-var tcanvasW = tcanvas.width();
-var tcanvasH = tcanvas.height();
-tcanvas.css({width: tcanvasW, height: tcanvasH});
-  
-var tiles = [];
-var tcount = 0;
+  var tcanvas = $("#transition-canvas");
+  var tctx = tcanvas[0].getContext('2d');
+  var tcanvasW = tcanvas.width();
+  var tcanvasH = tcanvas.height();
+  tcanvas.css({width: tcanvasW, height: tcanvasH});
 
-$(".nav-t a").click(function (ev) {
-  var a = $(ev.target).text().toLowerCase();
-  console.log(a);
-  $(".shower").removeClass("shower");
-  $("#" + a).addClass("shower");
-  // TRIGGER PAGE TRANSITION
-});
-  
-  function drawS(x,y,w,h,c,ctx) {
-      ctx.beginPath();
-      ctx.fillStyle = c;
-      ctx.fillRect(x,y,w,h);
-      ctx.fill();
-      //ctx.lineWidth = 22;
-      //ctx.strokeStyle = '#000';
-      //ctx.stroke();
-      tiles[tcount] = {
-        x: x,
-        y: y,
-        w: w,
-        h: h,
-        fill: c,
-        id: tcount
-      };
-    tcount++;
+  var tiles = [];
+  var tcount = 0;
+
+  $(".nav-t a").click(function (ev) {
+    var a = $(ev.target).text().toLowerCase();
+    console.log(a);
+    $(".shower").removeClass("shower");
+    $("#" + a).addClass("shower");
+    // TRIGGER PAGE TRANSITION
+  });
+
+    function drawS(x,y,w,h,c,ctx) {
+        ctx.beginPath();
+        ctx.fillStyle = c;
+        ctx.fillRect(x,y,w,h);
+        ctx.fill();
+        //ctx.lineWidth = 22;
+        //ctx.strokeStyle = '#000';
+        //ctx.stroke();
+        tiles[tcount] = {
+          x: x,
+          y: y,
+          w: w,
+          h: h,
+          fill: c,
+          id: tcount
+        };
+      tcount++;
+      }
+
+    function transition() {
+
     }
+
+    transition();
+</script>
+
+<script>
+
+  $('.grid').masonry({
+    // set itemSelector so .grid-sizer is not used in layout
+    itemSelector: '.grid-item',
+    // use element for option
+    columnWidth: '.grid-sizer',
+    // gutter px
+    gutter: ".gutter-sizer",
+    // slow transitions
+    transitionDuration: '0.8s',
+    // 1 at a time transitions ms
+    stagger: 300,
+    horizontalOrder: true,
+    percentPosition: true
+  });
   
-  function transition() {
-    
-  }
   
-  transition();
+</script>
+
+
+<script>
+  
+  var canvasDiv = document.getElementById('contact');
+var options = {
+  particleColor: '#17202A',
+  interactive: true,
+  speed: 'medium',
+  density: 'high'
+};
+var particleCanvas = new ParticleNetwork(canvasDiv, options);
+  
 </script>
 
 @endsection

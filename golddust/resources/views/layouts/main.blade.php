@@ -32,11 +32,19 @@
     <!-- TYPEIT.JS -->
     <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
   
+    <!-- MASONRY -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  
+    <!-- PARTICLE JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.1.0/particles.min.js"></script>
+
+  
 </head>
 <body>
 
   
   @yield('content')
+  
   
   
 </body>

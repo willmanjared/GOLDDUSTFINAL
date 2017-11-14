@@ -15,6 +15,12 @@ body > .container-fluid, body > .container {
   width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 #lazerfire, #contact, #about, #services {
   display: none;
 }
@@ -58,6 +64,128 @@ body > .container-fluid, body > .container {
   background-color: #616A6B;
 }
 
+
+
+
+
+.grid-sizer, .gutter-sizer {
+  visibility: hidden;
+}
+.gutter-sizer {
+  width: 40px;
+}
+.grid-sizer, .grid-item { 
+  /*background-color: #d8d8d8;*/
+  border: 2px solid #2ab27b;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+  display: inline-block;
+  margin-bottom: 40px;
+  min-height: 250px;
+  overflow: hidden;
+  opacity: 1;
+  width: calc(20% - 40px); 
+}
+.grid-item > * {
+  margin: auto;
+}
+.grid-item:hover {
+  opacity: 1;
+}
+
+.grid-item--width2 {
+  width: calc(40% - 40px); 
+}
+.grid-item--width3 {
+  width: calc(60% - 40px); 
+}
+.grid-item--width4 {
+  width: calc(80% - 40px); 
+}
+.grid-item--width5 {
+  background-color: transparent;
+  display: flex;
+  opacity: 1;
+  width: calc(100% - 40px); 
+}
+
+.grid-item--width5 h1 {
+      color: #da7aa4;
+    /*background: -webkit-linear-gradient(0deg, #da7aa4, #02bbb0);*/
+  background: -webkit-linear-gradient(0deg, #6199DD, #52CFB7);
+  font-size: 4em;
+  margin: auto;
+  -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+}
+
+.grid-item--height2 {
+  
+}
+
+.grid,
+.grid .grid-item {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.grid {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+
+
+
+
+
+
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+.clouds {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+
+.clouds{
+  background-color: #000;
+    background: #fff url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    z-index:-1;
+filter: invert(100%);
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
 
 /*
   .glitch{
