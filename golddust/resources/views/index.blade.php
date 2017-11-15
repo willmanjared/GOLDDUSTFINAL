@@ -20,12 +20,14 @@
     </div>
   </nav>
 
-<div id="lazerfire" class="container-fluid" style="position: relative;">
+<div id="lazerfire" class="container-fluid shower" style="position: relative;">
   
 
   
-  <div class="row full-h" style="background-color: #424949;">
-    <div class="col-md-12 full-h" style="display: table;">
+  <div class="row full-h">
+    
+    <div class="col-md-12 full-h" style="display: table; position: relative; background-color: #424949;">
+      <canvas id="hcanvas" style="height: calc(100% - 165px); width: calc(100% - 120px); position: absolute; top: 65px; left: 65px; z-index: 4;"></canvas>
       <div style="display: table-cell; text-align: left; vertical-align: bottom;">
         <h4>
           Welcome To The Future 
@@ -88,7 +90,7 @@
   
 </div>
 
-<div id="services" class="container-fluid shower" style="position: relative; display: none;">
+<div id="services" class="container-fluid" style="position: relative; display: none;">
   <div class="clouds"></div>
   <div class="row" style="height: 75%;">
     <div class="col-md-10 col-md-offset-1 full-h">
@@ -176,7 +178,7 @@
 </div>
 
 
-
+<!--
 <script>
   var tcanvas = $("#transition-canvas");
   var tctx = tcanvas[0].getContext('2d');
@@ -184,8 +186,8 @@
   var tcanvasH = tcanvas.height();
   tcanvas.css({width: tcanvasW, height: tcanvasH});
 
-  var tiles = [];
-  var tcount = 0;
+  var tilesT = [];
+  var tcountT = 0;
 
   $(".nav-t a").click(function (ev) {
     var a = $(ev.target).text().toLowerCase();
@@ -195,30 +197,11 @@
     // TRIGGER PAGE TRANSITION
   });
 
-    function drawS(x,y,w,h,c,ctx) {
-        ctx.beginPath();
-        ctx.fillStyle = c;
-        ctx.fillRect(x,y,w,h);
-        ctx.fill();
-        //ctx.lineWidth = 22;
-        //ctx.strokeStyle = '#000';
-        //ctx.stroke();
-        tiles[tcount] = {
-          x: x,
-          y: y,
-          w: w,
-          h: h,
-          fill: c,
-          id: tcount
-        };
-      tcount++;
-      }
-
     function transition() {
 
     }
 
-    transition();
+    //transition();
 </script>
 
 <script>
@@ -243,16 +226,393 @@
 
 
 <script>
-  
+/*
   var canvasDiv = document.getElementById('contact');
-var options = {
-  particleColor: '#17202A',
-  interactive: true,
-  speed: 'medium',
-  density: 'high'
-};
-var particleCanvas = new ParticleNetwork(canvasDiv, options);
+  var options = {
+    particleColor: '#17202A',
+    interactive: true,
+    speed: 'medium',
+    density: 'high'
+  };
+  var particleCanvas = new ParticleNetwork(canvasDiv, options);
+*/
   
+  
+  var hcanvas = $("#hcanvas");
+  var hctx = hcanvas[0].getContext('2d');
+  var hcanvasW = hcanvas.width();
+  var hcanvasH = hcanvas.height();
+  hcanvas.css({ width: hcanvasW, height: hcanvasH });
+  
+  var rows = 13;
+  var cols = 39;
+  
+  var tmarg = 4;
+  
+  var tileHeight = Math.round(hcanvasH / rows) - tmarg;
+  var tileWidth = Math.round(hcanvasW / cols) - tmarg;
+  var tileFill = '#2ab27b';
+  
+  var circleRadius = 2;
+  
+  var tiles = [];
+  var tcount = 0;
+  
+  var circles = [];
+  var ccount = 0;
+  
+  function drawS(x,y,w,h,c,ctx) {
+          ctx.beginPath();
+          ctx.fillStyle = c;
+          ctx.fillRect(x,y,w,h);
+          ctx.fill();
+          //ctx.lineWidth = 22;
+          //ctx.strokeStyle = '#000';
+          //ctx.stroke();
+          tiles[tcount] = {
+            x: x,
+            y: y,
+            w: w,
+            h: h,
+            fill: c,
+            id: tcount
+          };
+        tcount++;
+        }
+  
+  function drawC(x,y,r,c,ctx,id) {
+      ctx.beginPath();
+      ctx.arc(x,y,r,0,2 * Math.PI);
+      ctx.fillStyle = c;
+      ctx.fill();
+      //ctx.stroke();
+      if (!id) {
+      circles[ccount] = {
+        x: x,
+        y: y,
+        c: c,
+        r: r,
+        id: ccount
+      };
+      ccount++;
+      }
+    }
+  
+  var dx = tmarg / 2;
+  var dy = tmarg / 2;
+  
+  for(var i = 0; i < cols; i++) {
+    for(var p = 0; p < rows; p++) {
+      drawS(dx,dy,tileWidth,tileHeight,tileFill, hctx);
+      drawC(Math.round(dx + (tileWidth / 2)), Math.round(dy + (tileHeight / 2)), circleRadius, "#0FF", hctx);
+      dy += tileHeight + tmarg;
+    }
+    dy = tmarg / 2;
+    dx += tileWidth + tmarg;
+  }
+  
+</script>
+
+-->
+
+<script>
+  
+  var c = $("#hcanvas");
+  var ctx = c[0].getContext("2d");
+  
+  var ch = c.height();
+  var cw = c.width();
+  
+  c.attr({ height: ch, width: cw });
+  
+  var rows = 13;
+  var cols = 39;
+  
+  var tmarg = 4;
+  
+  var tileHeight = Math.round(ch / rows) - tmarg;
+  var tileWidth = Math.round(cw / cols) - tmarg;
+  var tileFill = 'transparent';//'#2ab27b';
+  
+  var circleRadius = 5;
+  
+  var tiles = [];
+  var tcount = 0;
+  
+  var circles = [];
+  var ccount = 0;
+  
+  //console.log(tileWidth, tileHeight);
+  
+  function drawS(x,y,w,h,c,id) {
+      ctx.beginPath();
+      ctx.fillStyle = c;
+      ctx.fillRect(x,y,w,h);
+      ctx.fill();
+      //ctx.lineWidth = 22;
+      //ctx.strokeStyle = '#000';
+      //ctx.stroke();
+    if(typeof id == "undefined") {
+        tiles[tcount] = {
+          x: x,
+          y: y,
+          w: w,
+          h: h,
+          fill: c,
+          id: tcount
+        };
+        tcount++;
+      }
+      //ctx.closePath();
+    }
+  function drawC(x,y,r,c,id) {
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,2 * Math.PI);
+    ctx.fillStyle = c;
+    ctx.fill();
+    //ctx.stroke();
+    //console.log(id);
+    if(typeof id == "undefined") {
+    circles[ccount] = {
+      x: x,
+      y: y,
+      c: c,
+      r: r,
+      id: ccount
+    };
+    ccount++;
+    }
+    //ctx.closePath();
+  }
+  
+/*
+  
+  function biggerC(arr) {
+    
+    var j = 0, k;
+    
+    // clearRect for the tile circle is in
+    
+    
+    while(k = arr[j]) {
+      //var l = k.x + tileWidth;
+      //var m = k.y + tileHeight;
+      
+      //console.log(j);
+      
+      //var ab = circles[k.id];
+      var ba = (tileWidth - circles[k.id].r + 4) / 2;
+      
+        //for(var i = 0; i < ba; i++) {
+          
+            setInterval(function () {
+                drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r + i, "#0FF");
+
+            }, 500);
+          
+        //}
+      growLoopC(k,ba);
+      
+      j++;
+    }
+    
+    ctx.clearRect(0, 0, c.width, c.height);
+    
+    // calculate maximum size of circle
+    // loop to incrementally increase the size of the circle
+    
+  }
+  function smallerC(arr) {
+    
+    
+    
+  }
+  
+  function growLoopC(k, b) {
+    //console.log(b)
+    var i = 0;
+    var loo = setInterval(function () {
+        if (i < b) {
+          ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
+          drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r + i, "#0FF", k.id);
+          i++;
+          //console.log(i);
+        } else {
+          
+          // add to smaller array
+          circleSmaller.push(circleBigger[0]);
+          
+          // remove circle from array
+          circleBigger.splice(0,1);
+          
+          clearTimeout(loo);
+          
+          //shrinkLoopC(k, circleRadius);
+          //console.log(circles);
+        }
+      }, 20);
+  }
+  
+  function shrinkLoopC(k, b) {
+    //console.log(b)
+    var i = 0;
+    var lo = setInterval(function () {
+        if (i > b) {
+          ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
+          drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r - i, "#0FF");
+          i++;
+          //console.log(i);
+        } else {
+          
+          // add to smaller array
+          //circleSmaller.push(circleBigger[0]);
+          
+          // remove circle from array
+          circleSmaller.splice(0,1);
+          
+          clearTimeout(lo);
+        }
+      }, 2);
+  }
+  
+*/
+  
+  var dx = tmarg / 2;
+  var dy = tmarg / 2;
+  
+  function initCanvas() {
+      for(var i = 0; i < cols; i++) {
+        for(var p = 0; p < rows; p++) {
+          drawS(dx,dy,tileWidth,tileHeight,tileFill);
+          drawC(Math.round(dx + (tileWidth / 2)), Math.round(dy + (tileHeight / 2)), circleRadius, "#0FF");
+          dy += tileHeight + tmarg;
+        }
+        dy = tmarg / 2;
+        dx += tileWidth + tmarg;
+      }
+  }
+  
+  function drawCanvas(objs, type) {
+    // DRAWS CANVAS FROM OBJECT ARRAY
+    /*
+    var oc = objs.length;
+    for(var i = 0; i < oc; i++) {
+      if(type == "circle") {
+        drawC(objs[i].x,objs[i].y,objs[i].r,objs[i].c,objs[i].id);
+      }
+      if (type == "square") {
+        drawS(objs[i].x,objs[i].y,objs[i].w,objs[i].h,objs[i].c,objs[i].id);
+      }
+    }
+    */
+  }
+  
+  //console.log(tiles);
+    initCanvas();
+  
+ var circleBigger = [];
+ //var growing = [];
+ var circleSmaller = [];
+ //var shrinking = [];
+  var circleLoop = [];
+  // max circle size
+  var ba = (tileWidth - circleRadius) / 2;
+  //loop interval milliseconds
+  var loopInt = 50;
+  
+  c.on('click', function (ev) {
+    console.log(tiles, "tiles");
+    console.log(circles, "circles");
+    console.log(circleBigger, "circleBigger");
+    console.log(circleSmaller, "circleSmaller");
+  });
+  
+  c.on('mousemove', function (e) {
+      e.preventDefault();
+      // variables for collision detection 
+        var rect = this.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top,
+            i = 0, r;
+
+        while (r = tiles[i++]) {
+          //console.log(r);
+          //ctx.clearRect(r.x - tmarg, r.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
+          ctx.beginPath();
+          ctx.rect(r.x, r.y, r.w, r.h);
+          //ctx.rect(r.x, r.y, r.w, r.h);
+          var rc = $.grep(circleBigger, function (e) { return e.id == r.id; });
+          var lc = $.grep(circleLoop, function (e) { return e.id == r.id; });
+
+            if (ctx.isPointInPath(x,y) && rc.length == 0 && lc.length == 0) {
+               circleBigger.push(r);
+             } else if (rc.length == 0 && lc.length == 0) {
+               //drawCanvas(circles, "circle");
+               drawC(circles[r.id].x,circles[r.id].y,circles[r.id].r,circles[r.id].c,r.id);
+             } else if (lc.length == 0) {
+               drawC(circles[r.id].x,circles[r.id].y,circles[r.id].r,circles[r.id].c,r.id);
+               
+               //console.log("circle gets biger");
+               // initialize grow loop
+               circleLoop.push(r);
+               growLoopC(r,ba);
+               
+               
+             }
+        }
+
+    });
+  
+  function growLoopC(k, b) {
+    //console.log(b)
+    
+      var i = 0;
+      var loo = setInterval(function () {
+          if (i < b) {
+            ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
+            drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r + i, "#0ff", k.id);
+            i++;
+            //console.log(i);
+          } else {
+
+            // add to smaller array
+            circleLoop.push(circleBigger[0]);
+            shrinkLoopC(circleBigger[0]);
+
+            // remove circle from array
+            circleBigger.splice(0,1);
+            //circleLoop.splice(0,1);
+
+            clearTimeout(loo);
+
+          }
+        }, loopInt);
+      
+    
+  }
+  
+    function shrinkLoopC(k) {
+    //console.log(b)
+    var i = 0;
+    var lo = setInterval(function () {
+        if (i < circleRadius) {
+          ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
+          drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r - i, "#0FF");
+          i--;
+          //console.log(i);
+        } else {
+          
+          // add to smaller array
+          //circleSmaller.push(circleBigger[0]);
+          
+          // remove circle from array
+          //circleSmaller.splice(0,1);
+          circleLoop.splice(0,1);
+          
+          clearTimeout(lo);
+        }
+      }, loopInt);
+  }
 </script>
 
 @endsection
