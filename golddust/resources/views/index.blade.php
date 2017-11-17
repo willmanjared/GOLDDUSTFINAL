@@ -334,7 +334,7 @@
   var tileWidth = Math.round(cw / cols) - tmarg;
   var tileFill = 'transparent';//'#2ab27b';
   
-  var circleRadius = 5;
+  var circleRadius = 2;
   
   var tiles = [];
   var tcount = 0;
@@ -349,7 +349,7 @@
       ctx.fillStyle = c;
       ctx.fillRect(x,y,w,h);
       ctx.fill();
-      //ctx.lineWidth = 22;
+      //ctx.lineWidth = 2;
       //ctx.strokeStyle = '#000';
       //ctx.stroke();
     if(typeof id == "undefined") {
@@ -484,7 +484,7 @@
       for(var i = 0; i < cols; i++) {
         for(var p = 0; p < rows; p++) {
           drawS(dx,dy,tileWidth,tileHeight,tileFill);
-          drawC(Math.round(dx + (tileWidth / 2)), Math.round(dy + (tileHeight / 2)), circleRadius, "#0FF");
+          drawC(Math.round(dx + (tileWidth / 2)), Math.round(dy + (tileHeight / 2)), circleRadius, "#808B96");
           dy += tileHeight + tmarg;
         }
         dy = tmarg / 2;
@@ -516,7 +516,7 @@
  //var shrinking = [];
   var circleLoop = [];
   // max circle size
-  var ba = (tileWidth - circleRadius) / 2;
+  var ba = (tileWidth - circleRadius - 4) / 2;
   //loop interval milliseconds
   var loopInt = 50;
   
@@ -525,21 +525,22 @@
     console.log(circles, "circles");
     console.log(circleBigger, "circleBigger");
     console.log(circleSmaller, "circleSmaller");
+    console.log(circleLoop, "circleLoop");
   });
   
   c.on('mousemove', function (e) {
-      e.preventDefault();
+      //e.preventDefault();
       // variables for collision detection 
         var rect = this.getBoundingClientRect(),
             x = e.clientX - rect.left,
             y = e.clientY - rect.top,
             i = 0, r;
 
-        while (r = tiles[i++]) {
+        while (r = tiles[i++] ) {
           //console.log(r);
           //ctx.clearRect(r.x - tmarg, r.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
           ctx.beginPath();
-          ctx.rect(r.x, r.y, r.w, r.h);
+          ctx.rect(r.x, r.y, tileWidth, tileHeight);
           //ctx.rect(r.x, r.y, r.w, r.h);
           var rc = $.grep(circleBigger, function (e) { return e.id == r.id; });
           var lc = $.grep(circleLoop, function (e) { return e.id == r.id; });
@@ -548,9 +549,11 @@
                circleBigger.push(r);
              } else if (rc.length == 0 && lc.length == 0) {
                //drawCanvas(circles, "circle");
+               ctx.closePath();
                drawC(circles[r.id].x,circles[r.id].y,circles[r.id].r,circles[r.id].c,r.id);
              } else if (lc.length == 0) {
-               drawC(circles[r.id].x,circles[r.id].y,circles[r.id].r,circles[r.id].c,r.id);
+               ctx.closePath();
+               drawC(circles[r.id].x,circles[r.id].y,circleRadius,circles[r.id].c,r.id);
                
                //console.log("circle gets biger");
                // initialize grow loop
@@ -563,27 +566,43 @@
 
     });
   
+  
   function growLoopC(k, b) {
     //console.log(b)
     
       var i = 0;
       var loo = setInterval(function () {
-          if (i < b) {
-            ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
-            drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r + i, "#0ff", k.id);
+          if (i < b && typeof k !== "undefined") {
+            ctx.clearRect(k.x, k.y, tileWidth, tileHeight);
+            drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r + i, "#808B96", k.id);
             i++;
             //console.log(i);
           } else {
-
+             
+            clearTimeout(loo); shrinkLoopC(circleBigger[0]);
+            //circleLoop.splice(0,1);
             // add to smaller array
-            circleLoop.push(circleBigger[0]);
-            shrinkLoopC(circleBigger[0]);
+            //circleLoop.push(circleBigger[0]);
+            //shrinkLoopC(circleBigger[0]);
 
             // remove circle from array
-            circleBigger.splice(0,1);
+            //circleBigger.splice(0,1);
             //circleLoop.splice(0,1);
 
-            clearTimeout(loo);
+            
+            
+            
+            /*
+            if (circleLoop.splice(0,1).length == 1 && circle) {
+              
+              
+              circleLoop.push();
+              clearTimeout(loo);
+            } else {
+              console.log("there was an error");
+              clearTimeout(loo);
+            }
+            */
 
           }
         }, loopInt);
@@ -591,27 +610,33 @@
     
   }
   
-    function shrinkLoopC(k) {
+  function shrinkLoopC(k) {
     //console.log(b)
+    if(circleBigger.splice(0,1).length == 1) {
     var i = 0;
     var lo = setInterval(function () {
-        if (i < circleRadius) {
-          ctx.clearRect(k.x - tmarg, k.y - tmarg, tileWidth + tmarg, tileHeight + tmarg);
-          drawC(circles[k.id].x, circles[k.id].y, circles[k.id].r - i, "#0FF");
-          i--;
+        if (i < ba && typeof k !== "undefined" && ba - i > circleRadius) {
+          ctx.clearRect(k.x, k.y, tileWidth, tileHeight);
+          drawC(circles[k.id].x, circles[k.id].y, ba - i, "#616A6B", k.id);
+          i++;
           //console.log(i);
         } else {
-          
+          clearTimeout(lo);
           // add to smaller array
           //circleSmaller.push(circleBigger[0]);
           
           // remove circle from array
           //circleSmaller.splice(0,1);
-          circleLoop.splice(0,1);
+          //circleLoop.splice(0,1);
+          circleLoop.splice(circleLoop.length-1, 1);
           
-          clearTimeout(lo);
+          
         }
       }, loopInt);
+    } else {
+      //circleLoop.splice(circleLoop.length-1, 1);
+      console.log("there was an error with the shrink loop");
+    }
   }
 </script>
 
