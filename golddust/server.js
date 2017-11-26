@@ -5,6 +5,7 @@ var Redis = require('ioredis');
 var redis = new Redis();
 
 //var socket = io('http://http://ec2-34-210-133-115.us-west-2.compute.amazonaws.com:3000');
+var port = process.env.PORT || 3000;
 
 redis.subscribe('test-channel', function(err, count) {
   console.log("SUBSCRIBED: ", err, count);
@@ -44,7 +45,7 @@ redis.on('disconnect', function () {
    console.log('DISCONNECT')
 });
 
-http.listen(3000, function(){
+http.listen(port, function(){
     console.log('Listening on Port 3000');
 });
 

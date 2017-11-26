@@ -69,7 +69,7 @@ class ProjectsController extends Controller
     {
         //
       
-      dd($request);
+      //dd($request);
       
       $a = Projects::create([
         'user_id' => auth()->id(),
