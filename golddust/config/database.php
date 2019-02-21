@@ -102,9 +102,27 @@ return [
     | provides a richer set of commands than a typical key-value systems
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
-    */
-
+ 
+    // WITH CLUSTERS OF REDIS DATABASES
     'redis' => [
+
+        'client' => 'predis',
+        
+        'clusters' => [
+        
+          'default' => [
+              'host' => env('REDIS_HOST', '127.0.0.1'),
+              'password' => env('REDIS_PASSWORD', null),
+              'port' => env('REDIS_PORT', 6379),
+              'database' => 0,
+          ],
+        
+        ],
+
+      ],
+    
+    */
+      'redis' => [
 
         'client' => 'predis',
 
@@ -113,6 +131,7 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
+            'read_write_timeout' => 60,
         ],
 
     ],

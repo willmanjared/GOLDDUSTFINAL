@@ -1,0 +1,26 @@
+.view-form-input {}
+.view-form-select {}
+.view-form-textarea {}
+.view-form-select-right {}
+.view-form-select-left {}
+#view-form {}
+
+.btn-p {
+  transition: all 0.6s ease !important;
+}
+
+.btn-primary-p {
+  background-color: #3097D1;
+  border: 1px solid #2a88bd;
+  border-radius: 4px;
+  color: #fff;
+  padding: 4px;
+}
+
+.btn-primary-p:hover {
+  cursor: pointer;
+}
+
+.btn-primary-p:active {
+  background-color: #2a88bd;
+}

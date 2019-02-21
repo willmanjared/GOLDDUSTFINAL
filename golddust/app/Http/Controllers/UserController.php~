@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\User;
+
+class UserController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
+        return view('users.dashboard');
+    }
+
+    public function messenger()
+    {
+	$s = auth()->user()->sentMessages;
+	$r = auth()->user()->recievedMessages;
+
+	
+
+	// USE ROUTE MODEL BINDING TO COMPACT USER MESSAGES
+	return view('users.messenger');
+    }
+
+    public function proposals()
+    {
+	return view('users.proposals');
+    }
+
+    public function stats()
+    {
+	return view('users.stats');
+    }
+
+    public function tasks()
+    {
+	return view('users.tasks');
+    }
+}

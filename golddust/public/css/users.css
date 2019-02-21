@@ -1,0 +1,499 @@
+html, body {
+background-color: #f5f8fa;
+height: 100%;
+margin: 0;
+overflow: hidden;
+padding: 0;
+width: 100%;
+}
+
+div, p, a, label, h1, h2, h3, h4, h5, h6, button, li {
+font-family: Raleway,sans-serif;
+}
+
+p {
+margin-bottom: 0;  
+}
+
+label {
+  color: #3FA4F7;
+}
+
+.panel-default { 
+    border-color: #dddddd !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body > .container-fluid {
+  height: calc(100% - 51px);
+  padding-top: 22px;
+  padding-bottom: 22px;
+  overflow: auto !important;
+}
+
+.badge {
+  background-color: #2579a9;
+}
+
+#app > nav {
+  margin: 0;
+}
+
+.panel-dropdown {
+  transition: all 0.6s;
+}
+
+.panel-dropdown:hover > .panel-heading {
+  cursor: pointer;
+  background-color: #2579a9;
+  color: #fff;
+}
+
+.panel-dropdown:hover > .panel-heading label {
+  color: #fff;
+  transition: all 0.6s;
+}
+
+.panel-dropdown > .panel-heading {
+  transition: all 0.6s;
+}
+
+.panel-dropdown > .panel-body {
+  display: none;
+}
+
+.panel-body-left, .panel-body-right {
+  padding: 10px;
+}
+
+.panel-body-left {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 40px;
+  width: 80%;
+}
+
+.panel-body-right {
+  border-left: 1px solid #ddd;
+  float: right;
+  overflow: hidden;
+  width: 20%;
+}
+
+.panel-body-right button, .panel-body-right a {
+  height: auto;
+  margin-bottom: 10px;
+  white-space: normal;
+}
+
+.panel-body-right button:last-child, .panel-body-right a:last-child {
+  margin-bottom: 0;
+}
+
+.panel-heading > p {
+  display: inline-block;
+}
+
+.nav-tabs {
+  border: none;
+  margin-bottom: 10px;
+}
+
+
+.nav-tabs > li {
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs > .active {
+  border-bottom: none;
+}
+
+.nav-tabs > .active > a {
+  background-color: transparent !important;
+}
+
+.tab-container {
+  height: 100%;
+}
+
+.tab-container > div:not(:first-child) {
+  display: none;
+}
+
+.tab-container > div, .tab-container > div > .panel, .tab-container > div > .panel > .panel-body:not(:first-child) {
+  height: 100%;
+}
+
+#input-body {
+  white-space: pre-line;
+}
+
+#notifications li {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+#notifications {
+  padding: 5px 5px 0;
+  width: 300px;
+}
+
+#notifications .notification-icon, #notifications .notification-label, #notifications .notification-count {
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+#notifications .notification-icon {
+  text-align: center;
+  width: 19%;
+}
+
+#notifications .notification-icon i {
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#notifications .notification-label {
+  width: 60%;
+}
+
+#notifications .notification-label h5, #notifications .notification-count h5 {
+  text-align: center;
+    font-size: 1.1em !important;
+  margin: 0;
+}
+
+#notifications .notification-count {
+  text-align: center;
+  width: 18%;
+}
+
+
+.project-attr-list {}
+
+.project-attr-list > li > label, .project-attr-list > li > p {
+  display: inline-block;
+}
+
+.project-attr-list > li > label, .project-attr-list > li > p:not(:last-child) {
+  padding-right: 8px;
+}
+
+
+
+
+/* ########################################################################################## */
+
+
+
+.navbar-brand {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-default {
+background-color: #fff;
+}
+
+/* THIS IS ONLY A TEMPORARY STYLE FOR THE CENTER NAV
+   MORE THAN LIKE HAVE TO CREATE A NEW TOP NAV BAR */
+#center-nav-wrapper {
+display: inline-block;
+height: 50px;
+margin: auto;
+overflow: hidden;
+left: 30%;
+top: 0;
+position: absolute;
+width: 40%;
+}
+
+#app-navbar-collapse {
+position: relative;
+}
+
+/* END TEMPORARY STYLE RULES */
+
+#messenger-wrapper, #messenger-left, #messenger-right {
+  height: 100%;
+  overflow: hidden;
+}
+
+#messenger-wrapper > [class^=col-] {
+padding: 0;
+}
+
+#messenger-wrapper .panel {
+border-radius: 0;
+/*margin-bottom: 0;*/
+}
+
+.message-name, .message-date {
+display: inline-block;
+margin-bottom: 0;
+}
+
+.message-name {
+
+}
+
+.message-date {
+float: right;
+}
+
+#conversations, #messenger-conversation {
+height: 100%;
+overflow: auto;
+  position: relative !important;
+  width: 100%;
+}
+
+#messenger-conversation > .panel-body {
+overflow-x: hidden;
+overflow-y: auto;
+height: calc(100% - 43px);
+}
+
+#conversations > .panel-body, #messenger-conversation > .panel-body {
+
+}
+
+.fixed-panel-heading {
+  width: inherit;
+}
+
+#messenger-messages {
+height: calc(100% - 68px);
+}
+
+.conversation {
+  background-color: #fff;
+  border: 1px solid #d3e0e9;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  color: #636b6f;
+  margin: 5px 0 5px 0;
+  padding: 10px;
+  transition: all 0.6s;
+}
+
+.conversation:hover {
+  cursor: "pointer" !important;
+}
+
+.conversation-active {
+  background-color: #2579a9;
+  color: #fff;
+  transition: all 0.6s;
+}
+
+.message {
+margin-bottom: 15px !important;
+}
+
+.message-actions {
+  float: right;
+  margin-left: 10px;
+}
+
+.message-actions .btn {
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.message-actions a {
+  color: #777;
+}
+
+.message-actions .dropdown-menu {
+  left: -350% !important;
+}
+
+
+/* freelancer feed projects styles */
+
+.project-feed-wrapper {
+  
+}
+
+
+.project-feed-body, .project-feed-stats {
+  display: inline-block;
+  overflow: hidden;
+  padding: 5px;
+  vertical-align: top;
+}
+
+.project-feed-body {
+  width: 80%;
+}
+
+.project-feed-body p {
+  text-indent: 40px;
+}
+
+.project-feed-stats {
+  width: 19%;
+}
+
+.project-feed-stats > ul {
+  
+}
+
+.project-feed-stats > ul > li {
+  
+}
+
+/*
+.project-feed-stats > ul > li > label {
+  color: #3FA4F7;
+}
+*/
+
+
+
+
+
+/* BUSINESS STYLES */
+.create-button-wrapper {
+  
+}
+
+.create-button-wrapper > h3 {
+  border-bottom: 2px solid #ddd;
+  color: #3FA4F7;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.create-button, .remove-button {
+  /*
+  background-color: #3FA4F7;
+  border: 1px solid #234561;
+  border-radius: 50%;
+  color: #fff;
+  height: 5vw;
+  margin: auto;
+  width: 5vw;
+  */
+  margin-left: 25%;
+  width: 50%;
+}
+
+
+
+/* LIGHTBOX STYLES */
+
+#lightbox-container {
+  display: none;
+  height: 100% !important;
+  left: 0 !important;
+  margin: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 3 !important;
+}
+
+
+
+#lightbox-wrapper {
+  background-color: #fff;
+  border: 1px solid #888;
+  box-shadow: 0 3px 10px #000 !important;
+  border-radius: 5px;
+  height: 80%;
+  left: 10%;
+  overflow: auto;
+  position: fixed !important;
+  top: 10%;
+  width: 80%;
+  z-index: 4;
+}
+
+#lightbox-overlay {
+  background-color: #000;
+  height: 100%;
+  opacity: 0.4;
+  width: 100%;
+}
+
+.project-header {
+  margin-bottom: 10px;
+}
+
+.project-header h3, .description-heading {
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  text-indent: 0;
+}
+
+.project-header button {
+  border: none;
+  float: right;
+}
+
+.project-header p {
+  text-indent: 40px;
+}
+
+.project-body {
+  padding: 10px;
+}
+
+.project-body form  {
+  
+}
+
+.project-body input {}
+
+.project-body select {}
+
+.project-body textarea {
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.proposal-body {
+  display: inline-block;
+  width: 80%;
+}
+
+.proposal-actions {
+  border-left: 1px solid #d3e0e9;
+  float: right;
+  overflow: hidden;
+  padding-left: 10px;
+  width: 20%;
+}
+
+
+
+/* BUSINESS DASHBOARD */
+
+.project-note-body {
+  display: inline-block;
+  min-height: 70px;
+  width: 80%;
+}
+
+.project-note-actions {
+  border-left: 1px solid #d3e0e9;
+  float: right;
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+  width: 20%;
+}
+
+
+
+/* ##########################################*/
